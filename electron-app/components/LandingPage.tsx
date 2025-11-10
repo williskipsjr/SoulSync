@@ -43,7 +43,7 @@ const moodConfig = {
     textColor: 'text-green-800',
     emoji: '😌',
     title: 'Peace Within',
-    message: "You're in a great place. Let's maintain this calm and centered feeling.",
+    message: "You are in a great place. Let us maintain this calm and centered feeling.",
     bgPattern: 'bg-green-50/50',
   },
   neutral: {
