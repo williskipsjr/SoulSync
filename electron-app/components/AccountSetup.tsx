@@ -46,11 +46,10 @@ export default function AccountSetup() {
     setLoading(true);
 
     try {
-      const result = await backendAPI.setupUser({
-        name: name.trim(),
-        tgids: validTelegramIds,
-        userid: user?.id || '',
-        email: user?.email || '',
+      const result = await backendAPI.registerContact({
+        user_id: user?.id || '',
+        user_name: name.trim(),
+        contact_chatid: validTelegramIds[0], // Taking first telegram ID
       });
 
       if (result.success) {
