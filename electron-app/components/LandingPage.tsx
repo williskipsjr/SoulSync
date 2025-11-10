@@ -18,8 +18,8 @@ const moodConfig = {
     gradient: 'from-gray-200 via-slate-200 to-zinc-200',
     textColor: 'text-gray-800',
     emoji: '😔',
-    title: 'You're Not Alone',
-    message: "I'm here to listen and support you through this difficult time.",
+    title: 'You Are Not Alone',
+    message: "I am here to listen and support you through this difficult time.",
     bgPattern: 'bg-gray-100/50',
   },
   sad: {
