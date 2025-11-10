@@ -109,21 +109,22 @@ class BackendAPI {
     }
   }
 
-  async sendChat(data: ChatMessage): Promise<{ response: string; error?: string }> {
+  async sendChat(data: ChatMessage): Promise<ChatResponse> {
     if (this.isFakeMode) {
       console.log('💬 [FAKE] Chat message:', data);
       await new Promise(resolve => setTimeout(resolve, 1000));
       return { 
-        response: 'This is a fake response. Please configure NEXT_PUBLIC_BACKEND_API_URL to connect to real backend.' 
+        response: 'This is a fake response. Please configure NEXT_PUBLIC_BACKEND_API_URL to connect to real backend.',
+        mood: 'normal'
       };
     }
 
     try {
       const response = await this.client!.post('/chat', data);
-      return { response: response.data };
+      return response.data;
     } catch (error: any) {
       console.error('Chat error:', error);
-      return { response: '', error: error.message };
+      throw new Error(error.response?.data?.detail || error.message || 'Failed to send message');
     }
   }
 
