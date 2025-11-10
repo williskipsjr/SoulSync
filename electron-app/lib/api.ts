@@ -58,20 +58,35 @@ class BackendAPI {
     }
   }
 
-  async setupUser(data: SetupData): Promise<{ success: boolean; error?: string }> {
+  async registerUser(data: UserRegistration): Promise<{ success: boolean; message?: string; error?: string }> {
     if (this.isFakeMode) {
-      console.log('📝 [FAKE] User setup:', data);
-      // Simulate API delay
+      console.log('📝 [FAKE] User registration:', data);
       await new Promise(resolve => setTimeout(resolve, 500));
-      return { success: true };
+      return { success: true, message: 'User registered (fake mode)' };
     }
 
     try {
-      const response = await this.client!.post('/setup', data);
-      return { success: true };
+      const response = await this.client!.post('/register_user', data);
+      return { success: true, message: response.data.message };
     } catch (error: any) {
-      console.error('Setup user error:', error);
-      return { success: false, error: error.message };
+      console.error('Register user error:', error);
+      return { success: false, error: error.response?.data?.detail || error.message };
+    }
+  }
+
+  async registerContact(data: ContactRequest): Promise<{ success: boolean; message?: string; error?: string }> {
+    if (this.isFakeMode) {
+      console.log('📝 [FAKE] Contact registration:', data);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      return { success: true, message: 'Contact registered (fake mode)' };
+    }
+
+    try {
+      const response = await this.client!.post('/register_contact', data);
+      return { success: true, message: response.data.message };
+    } catch (error: any) {
+      console.error('Register contact error:', error);
+      return { success: false, error: error.response?.data?.detail || error.message };
     }
   }
 
