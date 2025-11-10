@@ -37,28 +37,19 @@ function createWindow() {
 }
 
 function createTray() {
-  // Create a simple colored icon as placeholder
-  const iconSize = 16;
-  const canvas = require('canvas');
-  const canvasInstance = canvas.createCanvas(iconSize, iconSize);
-  const ctx = canvasInstance.getContext('2d');
+  // Use the icon file or create a simple one
+  const iconPath = path.join(__dirname, 'icon.png');
+  let trayIcon;
   
-  // Draw a simple circle icon
-  ctx.fillStyle = '#4A90A4';
-  ctx.beginPath();
-  ctx.arc(iconSize / 2, iconSize / 2, iconSize / 2 - 2, 0, 2 * Math.PI);
-  ctx.fill();
+  try {
+    trayIcon = nativeImage.createFromPath(iconPath);
+  } catch (error) {
+    // Fallback: Create a simple tray icon from data URL
+    const iconDataUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGHSURBVDiNpZLBaxNBFMZ/b3Y3yW42m7SxNqZpi1WhIIgH8eBBBA9ePHnw4sWTB/8DD/4DHjx48OBBEDx48ODBgyAePAiCBwVBRNCqVWut2TTZbHazOztjDqZpavvBg/fmm/d97w0jqsrJkQ8fPrC1tYXneSwvL7OxscHu7i4AExMTrK2t8fr1a+bm5uh2uxweHjI9Pc3t27dZXV1lfX2d7e1tZmZmWFlZYXFxkVarheu6LC0t4fs+uVyOIAhwHIft7W0cx2FxcZG5uTnK5TK5XI7FxUUqlQqFQoFKpcL8/DyZTIZsNsv9+/eZnJxkdnYW13VZWFggn89TLBYpFArkcjlyuRz5fJ5MJsPU1BS1Wo2xsTEqlQq+75PNZhkdHWVkZIR0Ok0qlSKZTJJMJkkkEiQSCeLxOLFYjGg0SjQaJRKJEIlECIfDhEIhwuEwoVAIy7IIBAJYloVlWViWhWVZWJaFaZqYpolpmpimSSAQwDAMDMPAMAyMMQYAY8w/jDH/A34DoZaHd1hCfG0AAAAASUVORK5CYII=';
+    trayIcon = nativeImage.createFromDataURL(iconDataUrl);
+  }
   
-  // Add a heart shape in the center
-  ctx.fillStyle = '#FFFFFF';
-  ctx.font = '10px Arial';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText('♥', iconSize / 2, iconSize / 2);
-  
-  const icon = nativeImage.createFromDataURL(canvasInstance.toDataURL());
-  
-  tray = new Tray(icon);
+  tray = new Tray(trayIcon);
   
   const contextMenu = Menu.buildFromTemplate([
     {
