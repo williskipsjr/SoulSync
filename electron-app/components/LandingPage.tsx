@@ -27,7 +27,7 @@ const moodConfig = {
     textColor: 'text-blue-800',
     emoji: '😢',
     title: 'Feeling Blue',
-    message: "It's okay to feel sad. Your feelings are valid.",
+    message: "It is okay to feel sad. Your feelings are valid.",
     bgPattern: 'bg-blue-50/50',
   },
   happy: {
