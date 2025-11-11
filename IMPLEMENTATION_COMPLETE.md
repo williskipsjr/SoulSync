@@ -255,8 +255,9 @@ Send messages with keywords:
 For issues or questions:
 - Check browser console for errors
 - Verify Telegram bot token is active
-- Ensure DeepSeek API key is valid
-- Test internet connectivity
+- Ensure Ollama is running (check http://localhost:11434)
+- Verify llama2:latest model is installed in Ollama
+- Test with: `curl http://localhost:11434/api/tags`
 
 ---
 
