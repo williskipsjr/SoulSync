@@ -33,20 +33,18 @@ interface MoodResponse {
 }
 
 class BackendAPI {
-  private deepseekClient: AxiosInstance;
-  private deepseekApiKey: string = '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';
+  private ollamaClient: AxiosInstance;
 
   constructor() {
-    // Initialize DeepSeek API client
-    this.deepseekClient = axios.create({
-      baseURL: 'https://api.deepseek.com',
-      timeout: 30000,
+    // Initialize Ollama API client
+    this.ollamaClient = axios.create({
+      baseURL: 'http://localhost:11434',
+      timeout: 60000,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.deepseekApiKey}`,
       },
     });
-    console.log('✅ AI Mode: DeepSeek R1 Distill 70B');
+    console.log('✅ AI Mode: Local Ollama with Llama 2');
   }
 
   async registerUser(data: UserRegistration): Promise<{ success: boolean; message?: string; error?: string }> {
