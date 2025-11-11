@@ -7,6 +7,7 @@ interface LocalUser {
   email: string;
   name: string;
   username: string;
+  telegram_id?: string;
 }
 
 interface ChatMessage {
@@ -28,11 +29,13 @@ interface AuthState {
   user: LocalUser | null;
   isAuthenticated: boolean;
   isSetupComplete: boolean;
+  moodDashboardCompleted: boolean;
   currentMood: MoodType;
   chatSessions: ChatSession[];
   currentSessionId: string | null;
   setUser: (user: LocalUser | null) => void;
   setSetupComplete: (complete: boolean) => void;
+  setMoodDashboardCompleted: (completed: boolean) => void;
   setMood: (mood: MoodType) => void;
   logout: () => void;
   // Chat session methods
@@ -51,6 +54,7 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       isAuthenticated: false,
       isSetupComplete: false,
+      moodDashboardCompleted: false,
       currentMood: 'normal' as MoodType,
       chatSessions: [],
       currentSessionId: null,
@@ -63,12 +67,15 @@ export const useAuthStore = create<AuthState>()(
       
       setSetupComplete: (complete) => set({ isSetupComplete: complete }),
       
+      setMoodDashboardCompleted: (completed) => set({ moodDashboardCompleted: completed }),
+      
       setMood: (mood) => set({ currentMood: mood }),
       
       logout: () => set({ 
         user: null, 
         isAuthenticated: false, 
         isSetupComplete: false,
+        moodDashboardCompleted: false,
         chatSessions: [],
         currentSessionId: null,
         currentMood: 'normal' as MoodType
@@ -158,6 +165,7 @@ export const useAuthStore = create<AuthState>()(
         user: state.user,
         isAuthenticated: state.isAuthenticated,
         isSetupComplete: state.isSetupComplete,
+        moodDashboardCompleted: state.moodDashboardCompleted,
         chatSessions: state.chatSessions,
         currentSessionId: state.currentSessionId,
         currentMood: state.currentMood,
