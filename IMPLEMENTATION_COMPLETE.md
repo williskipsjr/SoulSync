@@ -206,7 +206,7 @@ yarn dev
 
 1. **Telegram ID Required:** Users must provide emergency contact's Telegram ID during signup
 2. **Alert Cooldown:** Only one alert sent per hour to avoid spam
-3. **API Fallback:** If DeepSeek API fails, fallback responses are used
+3. **API Fallback:** If Ollama API fails, fallback responses are used
 4. **Crisis Resources:** Always displayed for suicidal mood detection
 
 ## 🆘 Crisis Resources
