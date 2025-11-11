@@ -146,6 +146,12 @@ export default function ChatDashboard() {
         setMood(response.mood);
       }
 
+      // Show alert notification if alert was sent
+      if (response.alert_sent) {
+        setAlertNotification('Emergency contact has been notified about your wellbeing.');
+        setTimeout(() => setAlertNotification(null), 8000);
+      }
+
       // Add assistant response
       const assistantMsgId = `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       addMessage(currentSessionId, {
