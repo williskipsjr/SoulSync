@@ -380,11 +380,15 @@ class BackendAPI {
         }
       }
 
-      // Send Telegram alert
+      // Generate personalized alert message using Ollama
+      const personalizedMessage = await this.generateAlertMessage(user.name, mood);
+
+      // Send Telegram alert with personalized message
       const alertSent = await telegramService.sendCrisisAlert(user.telegram_id, {
         userName: user.name,
         userEmail: user.email,
         mood: mood,
+        message: personalizedMessage,
       });
 
       if (alertSent) {
