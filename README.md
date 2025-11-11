@@ -151,9 +151,9 @@ This is an automated wellness check message.
 - Zustand (State management)
 
 **Backend:**
-- FastAPI (Python)
+- Local Ollama (Llama 2)
 - Telegram Bot API
-- LLM Integration (Custom)
+- LLM Integration (Local)
 
 ## 📚 Documentation
 
