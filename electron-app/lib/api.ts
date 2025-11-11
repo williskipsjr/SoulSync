@@ -117,6 +117,12 @@ class BackendAPI {
       if (detectedMood !== 'normal') {
         localStorage.setItem(`mood_${data.user_id}`, detectedMood);
       }
+
+      // Check if we need to send crisis alert
+      let alertSent = false;
+      if (detectedMood === 'suicidal' || detectedMood === 'depression') {
+        alertSent = await this.sendCrisisAlert(data.user_id, detectedMood);
+      }
       
       // Create system prompt based on detected mood
       const systemPrompt = this.getSystemPromptForMood(detectedMood);
@@ -143,7 +149,7 @@ class BackendAPI {
       return {
         response: aiResponse,
         mood: detectedMood,
-        alert_sent: detectedMood === 'suicidal'
+        alert_sent: alertSent
       };
     } catch (error: any) {
       console.error('DeepSeek API error:', error);
@@ -153,12 +159,66 @@ class BackendAPI {
       if (detectedMood !== 'normal') {
         localStorage.setItem(`mood_${data.user_id}`, detectedMood);
       }
+
+      // Still try to send alert even with API error
+      let alertSent = false;
+      if (detectedMood === 'suicidal' || detectedMood === 'depression') {
+        alertSent = await this.sendCrisisAlert(data.user_id, detectedMood);
+      }
       
       return {
         response: this.getFallbackResponse(detectedMood),
         mood: detectedMood,
-        alert_sent: detectedMood === 'suicidal'
+        alert_sent: alertSent
       };
+    }
+  }
+
+  /**
+   * Send crisis alert to emergency contact via Telegram
+   */
+  private async sendCrisisAlert(userId: string, mood: MoodType): Promise<boolean> {
+    try {
+      // Get user data from localStorage
+      const storedUsers = JSON.parse(localStorage.getItem('soulsync_users') || '[]');
+      const user = storedUsers.find((u: any) => u.id === userId);
+
+      if (!user || !user.telegram_id) {
+        console.warn('⚠️ No emergency contact found for user');
+        return false;
+      }
+
+      // Check if we've already sent an alert recently (avoid spam)
+      const lastAlertKey = `last_alert_${userId}`;
+      const lastAlert = localStorage.getItem(lastAlertKey);
+      const now = Date.now();
+      
+      if (lastAlert) {
+        const timeSinceLastAlert = now - parseInt(lastAlert);
+        // Don't send another alert within 1 hour
+        if (timeSinceLastAlert < 3600000) {
+          console.log('⏰ Alert cooldown active, skipping duplicate alert');
+          return false;
+        }
+      }
+
+      // Send Telegram alert
+      const alertSent = await telegramService.sendCrisisAlert(user.telegram_id, {
+        userName: user.name,
+        userEmail: user.email,
+        mood: mood,
+      });
+
+      if (alertSent) {
+        // Update last alert timestamp
+        localStorage.setItem(lastAlertKey, now.toString());
+        console.log('✅ Crisis alert sent to emergency contact');
+      }
+
+      return alertSent;
+    } catch (error) {
+      console.error('❌ Error sending crisis alert:', error);
+      return false;
     }
   }
 
