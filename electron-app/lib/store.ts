@@ -41,6 +41,7 @@ interface AuthState {
   // Chat session methods
   createNewSession: () => string;
   addMessage: (sessionId: string, message: ChatMessage) => void;
+  updateMessage: (sessionId: string, messageId: string, content: string) => void;
   deleteSession: (sessionId: string) => void;
   renameSession: (sessionId: string, title: string) => void;
   setCurrentSession: (sessionId: string | null) => void;
