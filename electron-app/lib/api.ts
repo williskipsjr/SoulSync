@@ -105,7 +105,7 @@ class BackendAPI {
   }
 
   async sendChat(data: ChatMessage): Promise<ChatResponse> {
-    console.log('💬 Sending message to DeepSeek AI:', data);
+    console.log('💬 Sending message to Ollama (Llama 2):', data);
     
     try {
       // Detect mood from user message
@@ -125,9 +125,9 @@ class BackendAPI {
       // Create system prompt based on detected mood
       const systemPrompt = this.getSystemPromptForMood(detectedMood);
       
-      // Call DeepSeek API
-      const response = await this.deepseekClient.post('/chat/completions', {
-        model: 'deepseek-reasoner',
+      // Call Ollama API
+      const response = await this.ollamaClient.post('/api/chat', {
+        model: 'llama2:latest',
         messages: [
           {
             role: 'system',
@@ -138,11 +138,14 @@ class BackendAPI {
             content: data.message
           }
         ],
-        temperature: 0.7,
-        max_tokens: 500,
+        stream: false,
+        options: {
+          temperature: 0.7,
+          num_predict: 500,
+        }
       });
       
-      const aiResponse = response.data.choices[0].message.content;
+      const aiResponse = response.data.message.content;
       
       return {
         response: aiResponse,
@@ -150,7 +153,7 @@ class BackendAPI {
         alert_sent: alertSent
       };
     } catch (error: any) {
-      console.error('DeepSeek API error:', error);
+      console.error('Ollama API error:', error);
       
       // Fallback to empathetic responses
       const detectedMood = this.detectMoodFromText(data.message);
