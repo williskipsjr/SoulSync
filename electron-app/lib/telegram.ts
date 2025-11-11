@@ -53,23 +53,20 @@ class TelegramService {
 
     const emoji = moodEmojis[data.mood] || '⚠️';
 
-    // If custom message provided, use it as the main message
-    const mainMessage = data.message || this.getMoodSpecificMessage(data.mood);
+    // Use custom message if provided, otherwise fallback to simple message
+    const mainMessage = data.message || `Hey, your friend ${data.userName} is going through some mental health stuff (${data.mood}). Take some time to talk to them.`;
 
     return `
-${emoji} <b>SoulSync Alert</b> ${emoji}
+${emoji} <b>SoulSync Alert</b>
 
 ${mainMessage}
 
-<b>User:</b> ${data.userName}
-<b>Detected State:</b> ${data.mood.charAt(0).toUpperCase() + data.mood.slice(1)}
 <b>Time:</b> ${timestamp}
 
-<b>What you can do:</b>
-${this.getRecommendedActions(data.mood)}
+${data.mood === 'suicidal' ? '<b>⚠️ URGENT - Please reach out immediately</b>' : ''}
 
 ---
-<i>Automated message from SoulSync - AI Mental Health Companion</i>
+<i>Automated alert from SoulSync</i>
     `.trim();
   }
 
