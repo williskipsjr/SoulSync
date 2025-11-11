@@ -6,11 +6,11 @@
 - ✅ No backend required - everything runs locally
 - ✅ Fake authentication with localStorage
 - ✅ All user data stored locally in browser
-- ✅ No external dependencies except DeepSeek AI and Telegram
+- ✅ No external dependencies except Local Ollama and Telegram
 
-### 2. **DeepSeek AI Integration**
-- ✅ Integrated DeepSeek R1 Distill 70B for AI chat responses
-- ✅ API Key: `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`
+### 2. **Local Ollama AI Integration**
+- ✅ Integrated Local Ollama with Llama 2 (llama2:latest) for AI chat responses
+- ✅ Runs completely locally on http://localhost:11434
 - ✅ Intelligent mood detection from user messages
 - ✅ Context-aware responses based on detected mood
 - ✅ Fallback responses if API fails
