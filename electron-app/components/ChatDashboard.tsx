@@ -77,6 +77,7 @@ export default function ChatDashboard() {
     currentSessionId,
     createNewSession,
     addMessage,
+    updateMessage,
     deleteSession,
     renameSession,
     setCurrentSession,
