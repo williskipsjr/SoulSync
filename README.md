@@ -1,1466 +1,1281 @@
-# 🧠 SoulSync - AI-Powered Mental Health Companion
+# 🧠 Soul-Sync: AI-Powered Mental Health Companion
 
 <div align="center">
 
-![SoulSync Banner](https://img.shields.io/badge/SoulSync-AI%20Mental%20Health%20Companion-6366f1?style=for-the-badge&logo=heart&logoColor=white)
+![Soul-Sync Banner](https://img.shields.io/badge/Soul--Sync-Mental%20Health%20AI-blueviolet?style=for-the-badge&logo=brain&logoColor=white)
 
-### **Because Every Mind Deserves Support. Because Every Life Matters.**
+[![GitHub Frontend](https://img.shields.io/badge/GitHub-Frontend-blue?style=flat-square&logo=github)](https://github.com/mdowais-39/SoulSync)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/owais39/Soul-Sync)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)](https://fastapi.tiangolo.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![Electron](https://img.shields.io/badge/Electron-28-blue)](https://www.electronjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![BERT](https://img.shields.io/badge/Model-BERT-orange)](https://huggingface.co/bert-base-uncased)
+[![Phi-2](https://img.shields.io/badge/Model-Phi--2-green)](https://huggingface.co/microsoft/phi-2)
+[![Qwen](https://img.shields.io/badge/Model-Qwen--3-red)](https://huggingface.co/Qwen)
+[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![Electron](https://img.shields.io/badge/Electron-28.0-47848F?style=flat-square&logo=electron)](https://www.electronjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Ollama](https://img.shields.io/badge/Ollama-Llama2-green?style=flat-square)](https://ollama.ai/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+**A comprehensive mental health desktop application combining AI emotion detection, personalized therapeutic responses, and life-saving emergency intervention through Telegram alerts.**
 
-**A privacy-first, AI-powered mental health companion that listens, understands, and intervenes when it matters most.**
+[🚀 Features](#-key-features) • [🏗️ Full Architecture](#️-full-system-architecture) • [📊 Performance](#-performance-metrics) • [🔧 Installation](#-installation) • [🔗 Repositories](#-repositories)
 
-[Features](#-key-features) • [Why SoulSync?](#-why-soulsync-why-now) • [Architecture](#-system-architecture) • [Setup](#-quick-start) • [Demo](#-application-screenshots) • [Contribute](#-contributing)
+---
+
+### 🔗 Project Repositories
+
+**Frontend (Desktop App):** [github.com/mdowais-39/SoulSync](https://github.com/mdowais-39/SoulSync)  
+**Backend (AI Models):** This Repository (Hugging Face)  
+**ML Models:** [huggingface.co/owais39/Soul-Sync](https://huggingface.co/owais39/Soul-Sync)
 
 </div>
 
 ---
 
-## 📖 Table of Contents
+## 🌟 Overview
 
-- [Why SoulSync? Why Now?](#-why-soulsync-why-now)
-- [The Mental Health Crisis](#-the-mental-health-crisis-by-the-numbers)
-- [How SoulSync Saves Lives](#-how-soulsync-saves-lives)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [User Experience Flow](#-user-experience-flow)
-- [Technology Stack](#-technology-stack-deep-dive)
-- [Quick Start](#-quick-start)
-- [Application Screenshots](#-application-screenshots)
-- [Implementation Details](#-implementation-details)
-- [Security & Privacy](#-security--privacy)
-- [Why Connecting with Loved Ones Matters](#-why-connecting-with-loved-ones-matters)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Emergency Resources](#-emergency-resources)
+**Soul-Sync** is a comprehensive mental health support system combining a beautiful Electron desktop application with powerful AI backend services. The system leverages state-of-the-art machine learning models to provide personalized, empathetic support through:
 
----
+- **Real-time emotion detection** using fine-tuned BERT models
+- **Contextual therapeutic responses** via Microsoft Phi-2
+- **Personalized refinement** through Qwen-3 LLM
+- **Life-saving crisis intervention** via automated Telegram alerts
+- **Privacy-first architecture** with local data storage
 
-## 🌟 Why SoulSync? Why Now?
+### 🎯 Mission
+To democratize mental health support by providing accessible, immediate, and personalized assistance to anyone in need, anywhere, anytime—with intelligent crisis detection that can save lives.
 
-### The Silent Epidemic
+### 🏆 What Makes Soul-Sync Unique
 
-Mental health disorders affect **1 in 4 people worldwide**. Yet, stigma, accessibility barriers, and cost prevent millions from seeking help. Every 40 seconds, someone loses their battle with mental illness through suicide. **Every 40 seconds.**
-
-But here's the truth: **Most suicides are preventable** with timely intervention.
-
-### The Gap SoulSync Fills
-
-Traditional mental health support faces critical challenges:
-- **24-72 hour wait times** for crisis hotlines
-- **$100-$300 per therapy session** puts care out of reach
-- **Stigma** prevents people from reaching out
-- **Geographic barriers** in rural areas
-- **After-hours crises** when support is unavailable
-
-SoulSync provides:
-- ✅ **Immediate, 24/7 availability** - No wait times, no appointments
-- ✅ **Zero cost** - Mental health support shouldn't have a price tag
-- ✅ **Privacy-first design** - No judgment, complete confidentiality
-- ✅ **Proactive intervention** - AI-powered crisis detection and automatic alerts
-- ✅ **Connection to loved ones** - Bridges the gap when professional help isn't immediately available
-
----
-
-## 📊 The Mental Health Crisis: By the Numbers
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                   GLOBAL MENTAL HEALTH STATISTICS                    │
-└─────────────────────────────────────────────────────────────────────┘
-
-    🌍 1 in 4 people          Will experience mental health issues
-                              in their lifetime
-
-    😔 280 million people     Live with depression worldwide
-
-    😰 301 million people     Suffer from anxiety disorders
-
-    🆘 703,000 people         Die by suicide each year
-                              (1 every 40 seconds)
-
-    💰 $1 trillion USD        Annual global economic cost of
-                              depression and anxiety
-
-    ⏰ 77% of people          Report that a simple check-in from
-                              someone who cares would have made
-                              a difference in their darkest moment
-
-    📞 50% of people          In mental health crisis don't reach
-                              out due to stigma or fear
-```
-
-### Why These Numbers Matter
-
-Behind every statistic is a human being—someone's friend, family member, colleague, or neighbor. Someone who laughs, dreams, loves, and struggles. **SoulSync exists to change these numbers**, one conversation at a time.
-
----
-
-## 💡 How SoulSync Saves Lives
-
-### The Three-Layer Protection System
-
-```
-┌────────────────────────────────────────────────────────────────────┐
-│                    SOULSYNC INTERVENTION MODEL                      │
-└────────────────────────────────────────────────────────────────────┘
-
-    LAYER 1: Immediate Emotional Support
-    ┌──────────────────────────────────────────────────┐
-    │  🤖 AI Companion                                  │
-    │  • Available 24/7, no wait times                 │
-    │  • Empathetic, non-judgmental responses          │
-    │  • Trained on mental health best practices       │
-    │  • Adapts to emotional state in real-time        │
-    └──────────────────────────────────────────────────┘
-                            ↓
-    LAYER 2: Crisis Detection
-    ┌──────────────────────────────────────────────────┐
-    │  🎯 AI-Powered Mood Analysis                     │
-    │  • Detects 7 distinct emotional states           │
-    │  • Identifies concerning patterns                │
-    │  • Recognizes crisis indicators                  │
-    │  • Continuous background monitoring              │
-    └──────────────────────────────────────────────────┘
-                            ↓
-    LAYER 3: Human Connection (The Critical Difference)
-    ┌──────────────────────────────────────────────────┐
-    │  📱 Emergency Alert System                       │
-    │  • Instant Telegram notification                 │
-    │  • Alerts designated emergency contact           │
-    │  • Bridges digital and human support             │
-    │  • Enables timely intervention                   │
-    └──────────────────────────────────────────────────┘
-                            ↓
-            🛡️ LIFE SAVED
-```
-
-### Real-World Impact
-
-**The Golden Hour in Mental Health:**  
-Research shows that **immediate response during a mental health crisis reduces suicide risk by 70%**. SoulSync ensures that:
-
-1. **The person is never alone** - AI companion provides immediate comfort
-2. **Warning signs are caught early** - Before crisis escalates
-3. **Loved ones are alerted instantly** - When intervention is needed most
-4. **Connection happens immediately** - No waiting, no barriers
+1. **Full-Stack Solution**: Complete desktop application + AI backend
+2. **Multi-Model Pipeline**: 3-stage AI processing for superior accuracy
+3. **Emergency Response**: Automatic Telegram alerts to emergency contacts
+4. **Privacy-Focused**: All chat data stored locally on user's device
+5. **Adaptive UI**: Interface changes based on detected emotional state
+6. **Daily Check-ins**: Mood dashboard that opens on every launch
 
 ---
 
 ## ✨ Key Features
 
-### 🔐 Privacy-First Authentication
-- **Email/Password Login** with local storage
-- **Emergency Contact Registration** - Required Telegram ID for crisis situations
-- **Complete Data Privacy** - Your conversations stay on your device
+### 🎭 **Emotion Classification**
+- Fine-tuned BERT model for accurate emotion detection
+- Classifies 7 distinct emotional states:
+  - 😰 Anxiety
+  - 🎭 Bipolar
+  - 😢 Depression
+  - 😊 Normal
+  - 🌀 Personality Disorder
+  - 😓 Stress
+  - 🆘 Suicidal
 
-### 📊 Daily Mood Check-In Dashboard
-- **Interactive Mood Tracking** - Rate your day (1-10) and feelings (1-5)
-- **Wellness Tips Carousel** - Rotating mental health advice with animations
-- **Visual Feedback** - Emoji reactions and color-coded interface
-- **Launches Every Time** - Ensures regular emotional check-ins
+### 💬 **Intelligent Response Generation**
+- Fine-tuned Microsoft Phi-2 model for contextual response generation
+- Trained on mental health conversation datasets
+- Empathetic and supportive language patterns
 
-### 💬 AI-Powered Empathetic Chat
-- **Local Ollama AI (Llama 2)** - No cloud dependency, complete privacy
-- **7 Mood Detection States**:
-  - 😊 **Normal** - Balanced, supportive conversations
-  - 😔 **Depression** - Gentle, validating support
-  - 🆘 **Suicidal** - Crisis intervention mode
-  - 😰 **Anxiety** - Calming, grounding techniques
-  - 🌀 **Bipolar** - Mood stabilization support
-  - 😥 **Stress** - Practical coping strategies
-  - 🧩 **Personality** - Identity and self-awareness exploration
+### 🎯 **Personalization Engine**
+- Qwen-3 LLM integration for final response refinement
+- Adapts responses based on:
+  - Detected emotion
+  - User input context
+  - Generated therapeutic guidance
+  - Individual conversation history
 
-- **Adaptive UI Theming** - Interface changes colors and messaging based on emotional state
-- **Real-Time Streaming Responses** - Natural, flowing conversation
-- **Chat Session Management** - Create, rename, delete, and export conversations
+### 🚨 **Emergency Alert System**
+- Automatic detection of critical emotional states
+- Telegram-based emergency notification system
+- Instantly alerts designated emergency contacts
+- Life-saving intervention for suicidal ideation
 
-### 🚨 Automatic Crisis Intervention
-- **Intelligent Pattern Detection** - Identifies concerning language and emotional states
-- **Instant Telegram Alerts** - Notifies emergency contact within seconds
-- **AI-Generated Messages** - Personalized, caring notifications to loved ones
-- **Privacy-Preserving** - Shares condition type, not actual message content
-- **Alert Cooldown** - Prevents alert spam (30-minute intervals per mood type)
-
-### 🎨 Mood-Based Experience
-Each mood triggers a unique visual and emotional experience:
-
-| Mood | Color Theme | Key Message | Activities |
-|------|-------------|-------------|------------|
-| Normal | Purple/Pink gradient | "You're doing great!" | Creative expression, music, nature walks |
-| Depression | Gray/Slate tones | "Taking it one day at a time" | Sunlight exposure, hydration, rest |
-| Suicidal | Rose/Red with urgency | "You are not alone" | Crisis hotline, safe person, emergency resources |
-| Anxiety | Sky/Cyan calming | "Breathe and ground yourself" | Deep breathing, meditation, worry journal |
-| Stress | Amber/Orange energy | "Break it down, step by step" | Task prioritization, exercise, digital detox |
-| Bipolar | Purple/Violet spectrum | "Finding your balance" | Sleep schedule, mood tracking, medication |
-| Personality | Indigo/Blue exploration | "Understanding yourself" | Self-reflection, boundaries, DBT skills |
+### 🖥️ **Desktop Application**
+- User-friendly interface
+- Privacy-focused local processing
+- Seamless conversation flow
+- Persistent chat history
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Full System Architecture
 
-### High-Level Overview
+Soul-Sync is a complete full-stack mental health application with desktop frontend and AI-powered backend:
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         SOULSYNC ARCHITECTURE                            │
-│                    Privacy-First Design Philosophy                       │
-└─────────────────────────────────────────────────────────────────────────┘
-
-┌───────────────────────── USER'S DEVICE ─────────────────────────────┐
-│                                                                       │
-│  ┌─────────────────────────────────────────────────────────────┐   │
-│  │               ELECTRON DESKTOP APPLICATION                   │   │
-│  │                                                               │   │
-│  │  ┌─────────────────────────────────────────────────────┐    │   │
-│  │  │         NEXT.JS FRONTEND (TypeScript + React)       │    │   │
-│  │  │                                                      │    │   │
-│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────┐ │    │   │
-│  │  │  │  Auth Screen │  │Mood Dashboard│  │Chat UI   │ │    │   │
-│  │  │  │              │  │              │  │          │ │    │   │
-│  │  │  │ • Email/Pass │  │ • Day Rating │  │ • AI Chat│ │    │   │
-│  │  │  │ • Telegram ID│  │ • Feelings   │  │ • History│ │    │   │
-│  │  │  └──────────────┘  └──────────────┘  └──────────┘ │    │   │
-│  │  │                                                      │    │   │
-│  │  │  ┌────────────────────────────────────────────┐    │    │   │
-│  │  │  │      ZUSTAND STATE MANAGEMENT              │    │    │   │
-│  │  │  │  • User Authentication  • Mood State       │    │    │   │
-│  │  │  │  • Chat Sessions        • UI State         │    │    │   │
-│  │  │  └─────────────┬──────────────────────────────┘    │    │   │
-│  │  └────────────────┼───────────────────────────────────┘    │   │
-│  │                   │                                          │   │
-│  │  ┌────────────────┴──────────────────────────────────┐     │   │
-│  │  │        LOCAL STORAGE (Browser Persistence)        │     │   │
-│  │  │  🔒 COMPLETE PRIVACY - DATA NEVER LEAVES DEVICE  │     │   │
-│  │  │                                                    │     │   │
-│  │  │  • User Credentials (hashed)                      │     │   │
-│  │  │  • Full Chat History                              │     │   │
-│  │  │  • Session Data                                   │     │   │
-│  │  │  • Mood History                                   │     │   │
-│  │  │  • Preferences                                    │     │   │
-│  │  └───────────────────────────────────────────────────┘     │   │
-│  └─────────────────────────────────────────────────────────────┘   │
-│                                │                                     │
-│                                │ Only sends: user_id + message       │
-│                                │ (No full history, no credentials)   │
-└────────────────────────────────┼─────────────────────────────────────┘
-                                 │
-                    ═════════════╪═════════════
-                      LOCAL NETWORK (HTTP)
-                    ═════════════╪═════════════
-                                 │
-                                 ▼
-┌─────────────────────── LOCAL AI SERVER ─────────────────────────────┐
-│                     (Runs on User's Machine)                         │
-│                                                                      │
-│  ┌────────────────────────────────────────────────────────────┐   │
-│  │                 OLLAMA - LOCAL AI ENGINE                    │   │
-│  │                   (Port: 11434)                             │   │
-│  │                                                              │   │
-│  │  ┌──────────────────────────────────────────────────────┐  │   │
-│  │  │           LLAMA 2 LANGUAGE MODEL                      │  │   │
-│  │  │  • 7 billion parameters                               │  │   │
-│  │  │  • Trained on empathetic conversations                │  │   │
-│  │  │  • Local inference (no cloud)                         │  │   │
-│  │  │  • Privacy-preserving                                 │  │   │
-│  │  └──────────────────────────────────────────────────────┘  │   │
-│  │                                                              │   │
-│  │  ┌──────────────────────────────────────────────────────┐  │   │
-│  │  │        AI PROCESSING PIPELINE                         │  │   │
-│  │  │                                                        │  │   │
-│  │  │  1. Receive User Message                              │  │   │
-│  │  │  2. Analyze Emotional Content                         │  │   │
-│  │  │  3. Detect Mood (7 types)                             │  │   │
-│  │  │  4. Identify Crisis Indicators                        │  │   │
-│  │  │  5. Generate Empathetic Response                      │  │   │
-│  │  │  6. Tag Response with Mood Label {{Label}}            │  │   │
-│  │  │  7. Stream Response in Real-Time                      │  │   │
-│  │  └──────────────────────────────────────────────────────┘  │   │
-│  └────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────┘
-                                 │
-                                 │ If Crisis Detected
-                                 ▼
-┌─────────────────────── ALERT SYSTEM ────────────────────────────────┐
-│                                                                       │
-│  ┌────────────────────────────────────────────────────────────┐    │
-│  │              TELEGRAM BOT INTEGRATION                       │    │
-│  │                                                              │    │
-│  │  1. Crisis Detected (suicidal, severe depression, etc.)     │    │
-│  │  2. Retrieve Emergency Contact (Telegram ID)                │    │
-│  │  3. Generate Personalized Alert Message via AI              │    │
-│  │  4. Send via Telegram Bot API                               │    │
-│  │  5. Alert Cooldown (30 min per mood type)                   │    │
-│  │                                                              │    │
-│  │  Alert Format:                                               │    │
-│  │  ┌─────────────────────────────────────────────────┐        │    │
-│  │  │ 🆘 SoulSync Alert                                │        │    │
-│  │  │                                                  │        │    │
-│  │  │ Hey, your friend [Name] is going through        │        │    │
-│  │  │ some mental health stuff right now (depression).│        │    │
-│  │  │ Take some time to talk to them.                 │        │    │
-│  │  │                                                  │        │    │
-│  │  │ Time: [Timestamp]                                │        │    │
-│  │  │                                                  │        │    │
-│  │  │ ---                                              │        │    │
-│  │  │ Automated alert from SoulSync                    │        │    │
-│  │  └─────────────────────────────────────────────────┘        │    │
-│  └────────────────────────────────────────────────────────────┘    │
-└───────────────────────────────┬───────────────────────────────────────┘
-                                │
-                    ════════════╪════════════
-                      INTERNET (Telegram API)
-                    ════════════╪════════════
-                                │
-                                ▼
-                   ┌─────────────────────────┐
-                   │   EMERGENCY CONTACT     │
-                   │   📱 Receives Alert     │
-                   │                         │
-                   │  • Instant notification │
-                   │  • User name & condition│
-                   │  • Timestamp            │
-                   │  • Call to action       │
-                   └─────────────────────────┘
-```
-
-### Architecture Principles
-
-1. **Privacy-First Design**: All sensitive data stays on user's device
-2. **Local AI Processing**: Ollama runs locally - no cloud AI providers
-3. **Minimal Data Transmission**: Only user_id and message sent externally
-4. **Human-in-the-Loop**: AI detects, humans intervene
-5. **Fail-Safe**: System continues working even if external services fail
-
----
-
-## 🔄 User Experience Flow
-
-### Complete User Journey
+### 🖥️ Frontend Architecture (Electron + Next.js)
 
 ```
-┌──────────────────────────────────────────────────────────────────────┐
-│                    SOULSYNC USER EXPERIENCE FLOW                      │
-│              From First Launch to Crisis Intervention                 │
-└──────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                    ELECTRON DESKTOP APP                         │
+│                   (Next.js 14 + TypeScript)                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────┐ │
+│  │  Login/Signup    │  │  Mood Dashboard  │  │ Chat Interface│ │
+│  │  • Email Auth    │→ │  • Daily Check-in│→ │ • AI Chat    │ │
+│  │  • Telegram ID   │  │  • Wellness Tips │  │ • History    │ │
+│  │  (Required)      │  │  • Mood Tracking │  │ • Export     │ │
+│  └──────────────────┘  └──────────────────┘  └──────────────┘ │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │            STATE MANAGEMENT (Zustand)                   │   │
+│  │  • User Session  • Chat History  • Mood Data           │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │         LOCAL STORAGE (Privacy-First)                   │   │
+│  │  • Chat Sessions  • User Data  • No Cloud Sync         │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                                                                 │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                    HTTP/REST API Calls
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    BACKEND API SERVER                           │
+│                    (FastAPI + Python)                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  API Endpoints:                                                 │
+│  ├─ POST /register_user      (User registration)               │
+│  ├─ POST /register_contact   (Telegram emergency contact)      │
+│  ├─ POST /chat               (AI conversation)                 │
+│  └─ POST /alert              (Crisis notification)             │
+│                                                                 │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   3-STAGE AI PIPELINE                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│         USER MESSAGE                                            │
+│              │                                                  │
+│              ▼                                                  │
+│  ┌─────────────────────────────────────────────┐               │
+│  │    STAGE 1: EMOTION CLASSIFICATION          │               │
+│  │    Fine-tuned BERT Model                    │               │
+│  │    (90.74% Accuracy)                        │               │
+│  │  Detects: Anxiety, Depression, Stress,      │               │
+│  │          Bipolar, Suicidal, etc.            │               │
+│  └─────────────────┬───────────────────────────┘               │
+│                    │                                            │
+│                    ▼                                            │
+│  ┌─────────────────────────────────────────────┐               │
+│  │    STAGE 2: RESPONSE GENERATION             │               │
+│  │    Fine-tuned Microsoft Phi-2               │               │
+│  │  Generates empathetic, context-aware        │               │
+│  │  mental health advice                       │               │
+│  └─────────────────┬───────────────────────────┘               │
+│                    │                                            │
+│                    ▼                                            │
+│  ┌─────────────────────────────────────────────┐               │
+│  │    STAGE 3: PERSONALIZATION                 │               │
+│  │    Qwen-3 LLM                               │               │
+│  │  Combines: Emotion + Response + Context     │               │
+│  │  Produces: Personalized final response      │               │
+│  └─────────────────┬───────────────────────────┘               │
+│                    │                                            │
+│                    ▼                                            │
+│         PERSONALIZED RESPONSE                                   │
+│              │                                                  │
+│              ▼                                                  │
+│  ┌─────────────────────────────────────────────┐               │
+│  │    🚨 CRISIS DETECTION                      │               │
+│  │    If suicidal/severe distress detected:    │               │
+│  │    → Trigger Telegram Alert                 │               │
+│  └─────────────────┬───────────────────────────┘               │
+│                    │                                            │
+└────────────────────┼────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              TELEGRAM EMERGENCY ALERT SYSTEM                    │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────┐     │
+│  │  Telegram Bot API                                     │     │
+│  │  • Instant notification to emergency contact          │     │
+│  │  • Includes: User info + Detected condition           │     │
+│  │  • Life-saving intervention                           │     │
+│  └───────────────────────────────────────────────────────┘     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-    ┌─────────────────┐
-    │  FIRST LAUNCH   │
-    │   (Day 1)       │
-    └────────┬────────┘
-             │
-             ▼
-    ┌──────────────────────────────────────────────┐
-    │         AUTHENTICATION SCREEN                 │
-    │  ┌────────────────────────────────────────┐  │
-    │  │  New User? → SIGN UP                   │  │
-    │  │  ┌──────────────────────────────────┐  │  │
-    │  │  │  📝 Full Name                    │  │  │
-    │  │  │  👤 Username                     │  │  │
-    │  │  │  ✉️  Email                       │  │  │
-    │  │  │  🔒 Password                     │  │  │
-    │  │  │  📱 Telegram ID (REQUIRED)       │  │  │
-    │  │  │     💡 Hint: Use @userinfobot   │  │  │
-    │  │  └──────────────────────────────────┘  │  │
-    │  │                                         │  │
-    │  │  Existing User? → LOGIN                 │  │
-    │  │  ┌──────────────────────────────────┐  │  │
-    │  │  │  ✉️  Email                       │  │  │
-    │  │  │  🔒 Password                     │  │  │
-    │  │  └──────────────────────────────────┘  │  │
-    │  └────────────────────────────────────────┘  │
-    └────────────────────┬─────────────────────────┘
-                         │ ✓ Submit
-                         ▼
-    ┌────────────────────────────────────────────────┐
-    │         BACKEND REGISTRATION                    │
-    │  1. POST /register_user                         │
-    │     → Stores basic user info                    │
-    │  2. POST /register_contact                      │
-    │     → Links Telegram ID to user                 │
-    │  3. Store credentials in localStorage           │
-    └────────────────────┬───────────────────────────┘
-                         │ ✓ Success
-                         ▼
-    ┌──────────────────────────────────────────────────┐
-    │         MOOD DASHBOARD (EVERY APP LAUNCH)        │
-    │  ┌────────────────────────────────────────────┐  │
-    │  │  Welcome back, [Name]! 👋                  │  │
-    │  │  ───────────────────────────────────────── │  │
-    │  │                                             │  │
-    │  │  📊 RATE YOUR DAY                           │  │
-    │  │  └─────○────────────────┘ 1━━━━━━━━━━10    │  │
-    │  │                                             │  │
-    │  │  😊 HOW ARE YOU FEELING?                    │  │
-    │  │  └───○──────┘ 1━━━━━5                      │  │
-    │  │                                             │  │
-    │  │  💡 MENTAL HEALTH TIPS (Rotating)           │  │
-    │  │  ┌────────────────────────────────────┐    │  │
-    │  │  │  🏃 Get 30 min of exercise today   │    │  │
-    │  │  └────────────────────────────────────┘    │  │
-    │  │                                             │  │
-    │  │  [Continue to Chat →]                       │  │
-    │  └────────────────────────────────────────────┘  │
-    └────────────────────┬─────────────────────────────┘
-                         │ Click "Continue"
-                         ▼
-    ┌──────────────────────────────────────────────────┐
-    │           MAIN CHAT DASHBOARD                     │
-    │  ┌──────────┐  ┌────────────────────────────┐   │
-    │  │ SIDEBAR  │  │     MAIN CHAT AREA         │   │
-    │  │          │  │                             │   │
-    │  │ • New    │  │  ┌────────────────────────┐│   │
-    │  │   Chat   │  │  │ 😊 Mood: Normal        ││   │
-    │  │          │  │  │ "How are you feeling?" ││   │
-    │  │ • Chat   │  │  └────────────────────────┘│   │
-    │  │   History│  │                             │   │
-    │  │   - Conv1│  │  [Messages Display]         │   │
-    │  │   - Conv2│  │                             │   │
-    │  │   - Conv3│  │  ┌────────────────────────┐│   │
-    │  │          │  │  │ Type your message...   ││   │
-    │  │ • User   │  │  │ [Send →]               ││   │
-    │  │   Profile│  │  └────────────────────────┘│   │
-    │  │ • Logout │  │                             │   │
-    │  └──────────┘  └────────────────────────────┘   │
-    └────────────────────┬─────────────────────────────┘
-                         │ User sends message
-                         ▼
-    ┌──────────────────────────────────────────────────┐
-    │         AI CONVERSATION PROCESSING                │
-    │  ┌────────────────────────────────────────────┐  │
-    │  │  1. User: "I'm feeling really down today" │  │
-    │  │     ↓                                       │  │
-    │  │  2. POST to Ollama API (Local)             │  │
-    │  │     ↓                                       │  │
-    │  │  3. AI analyzes emotional content          │  │
-    │  │     ↓                                       │  │
-    │  │  4. Mood detected: Depression              │  │
-    │  │     ↓                                       │  │
-    │  │  5. Generate empathetic response           │  │
-    │  │     ↓                                       │  │
-    │  │  6. Stream response: "I hear you, and      │  │
-    │  │     your feelings are valid..."            │  │
-    │  │     ↓                                       │  │
-    │  │  7. UI adapts to gray/slate theme          │  │
-    │  │     ↓                                       │  │
-    │  │  8. Save mood to localStorage              │  │
-    │  └────────────────────────────────────────────┘  │
-    └────────────────────┬─────────────────────────────┘
-                         │
-         ┌───────────────┴────────────────┐
-         │                                │
-         ▼                                ▼
-    ┌─────────────────┐        ┌──────────────────────┐
-    │  NORMAL MOOD    │        │   CRISIS DETECTED    │
-    │                 │        │                      │
-    │  • Continue     │        │  User: "I want to    │
-    │    conversation │        │  end it all"         │
-    │  • UI adapts    │        │         ↓            │
-    │  • Save history │        │  Mood: Suicidal      │
-    └─────────────────┘        │         ↓            │
-                               │  🚨 TRIGGER ALERT    │
-                               └──────────┬───────────┘
-                                          │
-                                          ▼
-                               ┌──────────────────────────┐
-                               │   CRISIS INTERVENTION    │
-                               │  ┌────────────────────┐  │
-                               │  │ 1. Detect keywords │  │
-                               │  │    (suicide, harm) │  │
-                               │  │         ↓          │  │
-                               │  │ 2. Retrieve        │  │
-                               │  │    emergency       │  │
-                               │  │    contact ID      │  │
-                               │  │         ↓          │  │
-                               │  │ 3. Generate        │  │
-                               │  │    personalized    │  │
-                               │  │    alert via AI    │  │
-                               │  │         ↓          │  │
-                               │  │ 4. Send Telegram   │  │
-                               │  │    message         │  │
-                               │  │         ↓          │  │
-                               │  │ 5. Show UI         │  │
-                               │  │    notification    │  │
-                               │  └────────────────────┘  │
-                               └──────────┬───────────────┘
-                                          │
-                                          ▼
-                               ┌──────────────────────────┐
-                               │   EMERGENCY CONTACT      │
-                               │   📱 RECEIVES ALERT      │
-                               │  ┌────────────────────┐  │
-                               │  │ "Hey, your friend  │  │
-                               │  │ [Name] is going    │  │
-                               │  │ through some mental│  │
-                               │  │ health stuff..."   │  │
-                               │  │                    │  │
-                               │  │ [Call them now]    │  │
-                               │  └────────────────────┘  │
-                               └──────────┬───────────────┘
-                                          │
-                                          ▼
-                                  🛡️ INTERVENTION
-                                     LIFE SAVED
+### 🔄 Complete User Flow
 
-┌────────────────────────────────────────────────────────────────────────┐
-│  KEY INSIGHT: The time between crisis detection and human connection   │
-│  is often the difference between life and death. SoulSync bridges      │
-│  this gap automatically.                                               │
-└────────────────────────────────────────────────────────────────────────┘
+```
+1. USER LAUNCHES APP
+   └→ Login/Signup Screen
+       ├→ Enter: Email, Password, Name, Username
+       └→ **Telegram ID (Required for emergency alerts)**
+
+2. DAILY MOOD CHECK-IN
+   └→ Mood Dashboard (shown every launch)
+       ├→ Rate your day (1-10 slider)
+       ├→ Feelings scale (1-5)
+       └→ View rotating wellness tips
+
+3. CONTINUE TO CHAT
+   └→ Main Chat Interface
+       ├→ Adaptive UI (changes with detected mood)
+       ├→ Chat history management
+       └→ Export conversations
+
+4. USER SENDS MESSAGE
+   └→ Message sent to Backend API (/chat endpoint)
+
+5. BACKEND PROCESSING
+   └→ 3-Stage AI Pipeline
+       ├→ BERT: Emotion classification
+       ├→ Phi-2: Response generation
+       └→ Qwen-3: Personalization
+
+6. RESPONSE DELIVERY
+   └→ Personalized message returned to frontend
+       └→ UI adapts to detected emotional state
+
+7. CRISIS DETECTION (If Applicable)
+   └→ If suicidal/severe distress detected
+       └→ Telegram Bot sends alert to emergency contact
+           ├→ User ID + Name
+           ├→ Detected condition
+           └→ Automated wellness check message
 ```
 
 ---
 
-## 🛠️ Technology Stack (Deep Dive)
+## 📊 Performance Metrics
 
-### Frontend Architecture
+### 🎯 Overall Model Performance
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    FRONTEND TECHNOLOGY STACK                  │
-└──────────────────────────────────────────────────────────────┘
+| Metric | Score |
+|--------|-------|
+| **Accuracy** | **90.74%** |
+| **Precision** | **90.80%** |
+| **Recall** | **90.74%** |
+| **F1-Score** | **90.76%** |
+| **Evaluation Loss** | 0.2590 |
 
-┌─────────────────────────────────────────────────────────────┐
-│  Electron 28.0                                               │
-│  ├─ Cross-platform desktop framework                         │
-│  ├─ Chromium + Node.js integration                           │
-│  ├─ System tray support                                      │
-│  └─ Native OS integration                                    │
-└─────────────────────────────────────────────────────────────┘
+### 📈 Per-Class Performance
 
-┌─────────────────────────────────────────────────────────────┐
-│  Next.js 14.1 (React Framework)                             │
-│  ├─ App Router architecture                                  │
-│  ├─ Server-side rendering (SSR)                              │
-│  ├─ Built-in routing                                         │
-│  ├─ Optimized performance                                    │
-│  └─ TypeScript-first approach                                │
-└─────────────────────────────────────────────────────────────┘
+| Emotion Class | Precision | Recall | F1-Score | Support |
+|--------------|-----------|--------|----------|---------|
+| **Anxiety** | 0.94 | 0.95 | 0.95 | 340 |
+| **Bipolar** | 0.94 | 0.94 | 0.94 | 264 |
+| **Depression** | 0.87 | 0.87 | 0.87 | 1453 |
+| **Normal** | 0.99 | 0.97 | 0.98 | 1620 |
+| **Personality Disorder** | 0.84 | 0.88 | 0.86 | 102 |
+| **Stress** | 0.85 | 0.90 | 0.88 | 224 |
+| **Suicidal** | 0.83 | 0.83 | 0.83 | 997 |
 
-┌─────────────────────────────────────────────────────────────┐
-│  React 18.2 (UI Library)                                     │
-│  ├─ Functional components + Hooks                            │
-│  ├─ useEffect for lifecycle management                       │
-│  ├─ useState for local state                                 │
-│  ├─ useRef for DOM manipulation                              │
-│  └─ Concurrent rendering                                     │
-└─────────────────────────────────────────────────────────────┘
+### 📉 Training Progress
 
-┌─────────────────────────────────────────────────────────────┐
-│  TypeScript 5.3 (Type Safety)                                │
-│  ├─ Compile-time type checking                               │
-│  ├─ IntelliSense support                                     │
-│  ├─ Interface definitions for all data structures            │
-│  └─ Reduced runtime errors                                   │
-└─────────────────────────────────────────────────────────────┘
+**BERT Fine-Tuning Performance:**
+- **Training Samples per Second:** 256
+- **Training Steps per Second:** 100
 
-┌─────────────────────────────────────────────────────────────┐
-│  Tailwind CSS 3.4 (Styling)                                  │
-│  ├─ Utility-first CSS framework                              │
-│  ├─ Custom gradient patterns                                 │
-│  ├─ Responsive design utilities                              │
-│  ├─ Animation classes                                        │
-│  └─ Dark mode support (future)                               │
-└─────────────────────────────────────────────────────────────┘
+**Microsoft/phi-2 Fine-Tuning Performance:**
+- **Training Samples per Second:** 500
+- **Training Steps per Second:** 100
 
-┌─────────────────────────────────────────────────────────────┐
-│  Zustand 4.5 (State Management)                              │
-│  ├─ Lightweight alternative to Redux                         │
-│  ├─ Persistent storage via localStorage                      │
-│  ├─ No boilerplate code                                      │
-│  ├─ Manages: User auth, Mood state, Chat sessions            │
-│  └─ TypeScript-friendly API                                  │
-└─────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────┐
-│  Axios 1.6 (HTTP Client)                                     │
-│  ├─ Promise-based HTTP requests                              │
-│  ├─ Request/response interceptors                            │
-│  ├─ Error handling                                           │
-│  └─ Timeout management                                       │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Backend & AI Architecture
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│                   BACKEND TECHNOLOGY STACK                    │
-└──────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────┐
-│  Ollama (Local AI Server)                                    │
-│  ├─ Runs on localhost:11434                                  │
-│  ├─ No cloud dependency                                      │
-│  ├─ Complete privacy                                         │
-│  └─ Easy model management                                    │
-└─────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────┐
-│  Llama 2 (Language Model)                                    │
-│  ├─ 7 billion parameters                                     │
-│  ├─ Conversational AI                                        │
-│  ├─ Fine-tuned for empathy                                   │
-│  ├─ Mood detection capability                                │
-│  └─ Streaming support                                        │
-└─────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────┐
-│  Telegram Bot API (Crisis Alerts)                            │
-│  ├─ Instant message delivery                                 │
-│  ├─ Bot token authentication                                 │
-│  ├─ Rich message formatting (HTML)                           │
-│  ├─ Reliable delivery                                        │
-│  └─ Global reach                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Data Flow Technologies
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│  localStorage (Browser Storage)                               │
-│  ├─ User credentials (hashed)                                │
-│  ├─ Chat history                                             │
-│  ├─ Mood tracking data                                       │
-│  ├─ Session information                                      │
-│  └─ Preferences                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Why This Stack?
-
-1. **Privacy**: Ollama runs locally - no data sent to OpenAI/Google/Anthropic
-2. **Performance**: Next.js + React optimized for fast rendering
-3. **Cross-Platform**: Electron works on Windows, macOS, Linux
-4. **Developer Experience**: TypeScript + Tailwind = rapid development
-5. **Reliability**: Proven technologies with strong community support
+*Training shows consistent improvement with validation accuracy reaching 90% by epoch 4, demonstrating effective learning without overfitting.*
 
 ---
 
-## 🚀 Quick Start
+## 🔧 Complete Installation Guide
 
-### Prerequisites
+Soul-Sync requires both frontend (desktop app) and backend (AI models) setup:
 
+### 📋 Prerequisites
+
+#### For Backend (This Repository):
+- Python 3.8+
+- pip or conda
+- CUDA-compatible GPU (recommended)
+- 8GB+ RAM
+- Telegram Bot Token ([Get one from @BotFather](https://t.me/botfather))
+
+#### For Frontend (Desktop App):
+- Node.js 18+
+- Yarn package manager
+- Electron-compatible OS (Windows, macOS, Linux)
+
+---
+
+### 🔙 Backend Setup (AI Models & API)
+
+#### 1. **Clone the Backend Repository**
 ```bash
-# Required Software
-✅ Node.js 18+ (https://nodejs.org/)
-✅ Yarn package manager (npm install -g yarn)
-✅ Ollama (https://ollama.ai/download)
-✅ Telegram account for emergency contacts
+# Clone from Hugging Face or your backend repository
+git clone https://huggingface.co/owais39/Soul-Sync
+cd Soul-Sync
 ```
 
-### Installation Steps
-
-#### 1. Install Ollama & Download Llama 2
-
+#### 2. **Create Virtual Environment**
 ```bash
-# Install Ollama (choose your OS)
-# macOS/Linux:
-curl https://ollama.ai/install.sh | sh
-
-# Windows: Download from https://ollama.ai/download
-
-# Download Llama 2 model
-ollama pull llama2:latest
-
-# Verify installation
-ollama run llama2
-# (Type 'exit' to quit test)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-#### 2. Clone Repository
-
+#### 3. **Install Dependencies**
 ```bash
-git clone <repository-url>
-cd soulsync
+pip install -r requirements.txt
 ```
 
-#### 3. Frontend Setup
-
-```bash
-cd electron-app
-
-# Install dependencies
-yarn install
-
-# Create environment file (if not exists)
-echo "NEXT_PUBLIC_BACKEND_API_URL=http://127.0.0.1:8000" > .env.local
+**Required Libraries:**
+```txt
+fastapi
+uvicorn
+transformers
+torch
+python-telegram-bot
+pydantic
+httpx
 ```
 
-#### 4. Get Telegram Bot Token
+#### 4. **Download Pre-trained Models**
+```bash
+# Models will automatically download on first run, or manually:
+python download_models.py
+```
 
-1. Open Telegram and search for `@BotFather`
+**Models Downloaded:**
+- BERT Base Uncased (Emotion Classifier)
+- Microsoft Phi-2 (Response Generator)
+- Qwen-3 LLM (Personalization Layer)
+
+#### 5. **Configure Telegram Bot**
+
+Create `config.json` in backend root:
+```json
+{
+  "telegram_bot_token": "YOUR_BOT_TOKEN_FROM_BOTFATHER",
+  "backend_port": 8000
+}
+```
+
+**Get Telegram Bot Token:**
+1. Open Telegram and search for [@BotFather](https://t.me/botfather)
 2. Send `/newbot` command
-3. Follow instructions to create your bot
-4. Copy the bot token provided
-5. Open `/electron-app/lib/telegram.ts`
-6. Replace `TELEGRAM_BOT_TOKEN` with your token
+3. Follow instructions and copy the token
+4. Paste token in `config.json`
 
-#### 5. Run the Application
-
-**Terminal 1: Start Ollama (if not auto-running)**
+#### 6. **Run the Backend Server**
 ```bash
-ollama serve
-# Should see: "Listening on 127.0.0.1:11434"
+# Start FastAPI server
+python backend_server.py
+
+# Server will run at: http://127.0.0.1:8000
+# API docs available at: http://127.0.0.1:8000/docs
 ```
 
-**Terminal 2: Launch SoulSync**
+**Verify Backend is Running:**
 ```bash
-cd electron-app
+curl http://127.0.0.1:8000/
+# Should return: {"status": "Soul-Sync Backend Running"}
+```
 
-# Option A: Web browser mode (for testing)
+---
+
+### 🎨 Frontend Setup (Desktop Application)
+
+#### 1. **Clone the Frontend Repository**
+```bash
+git clone https://github.com/mdowais-39/SoulSync.git
+cd SoulSync/electron-app
+```
+
+#### 2. **Install Dependencies**
+```bash
+yarn install
+```
+
+#### 3. **Configure Backend URL**
+
+File: `electron-app/.env.local`
+```env
+NEXT_PUBLIC_BACKEND_API_URL=http://127.0.0.1:8000
+```
+
+#### 4. **Run the Application**
+
+**Web Mode (Browser - for development):**
+```bash
 yarn dev:next
-# Visit http://localhost:3000
+# Open browser at http://localhost:3000
+```
 
-# Option B: Desktop application
+**Desktop Mode (Electron - production):**
+```bash
 yarn dev
-# Electron window will open automatically
+# Desktop app will launch
 ```
 
-#### 6. First-Time Setup
+**Build for Distribution:**
+```bash
+# Build for your platform
+yarn build
 
-1. **Create Account**:
-   - Click "Sign Up"
-   - Enter name, username, email, password
-   
-2. **Get Your Telegram ID**:
-   - Open Telegram
-   - Search for `@userinfobot`
-   - Forward any message to it
-   - Bot will reply with your chat ID (e.g., `123456789`)
-   - Copy this number
-   
-3. **Complete Registration**:
-   - Paste Telegram ID in signup form
-   - Submit registration
-   
-4. **Start Using**:
-   - Complete daily mood check-in
-   - Begin chatting with AI companion
+# Package as executable
+yarn package
+```
 
 ---
 
-## 📸 Application Screenshots
+### 🚀 Quick Start (Both Services)
 
-### 1. Login/Registration Screen
-
-```
-┌────────────────────────────────────────────────────────────┐
-│                    🧠 SoulSync                              │
-│         Your Empathetic AI Mental Health Companion          │
-│                                                             │
-│  ┌──────────────────────────────────────────────────────┐ │
-│  │  [  Login  ]  [ Sign Up ]                            │ │
-│  │                                                       │ │
-│  │  Full Name                                            │ │
-│  │  [John Doe                                      ]     │ │
-│  │                                                       │ │
-│  │  Username                                             │ │
-│  │  [johndoe                                       ]     │ │
-│  │                                                       │ │
-│  │  Telegram ID (Emergency Contact) *                    │ │
-│  │  💡 Don't know? Use @userinfobot                     │ │
-│  │  [123456789                                     ]     │ │
-│  │                                                       │ │
-│  │  Email Address                                        │ │
-│  │  [you@example.com                               ]     │ │
-│  │                                                       │ │
-│  │  Password                                             │ │
-│  │  [••••••••                                      ]     │ │
-│  │                                                       │ │
-│  │  [        Create Account        ]                    │ │
-│  └──────────────────────────────────────────────────────┘ │
-│                                                             │
-│         By continuing, you agree to our Terms of            │
-│              Service and Privacy Policy                     │
-└────────────────────────────────────────────────────────────┘
+**Terminal 1 - Backend:**
+```bash
+cd Soul-Sync-Backend
+source venv/bin/activate
+python backend_server.py
 ```
 
-**Key Features**:
-- Clean, calming gradient background (indigo/purple/pink)
-- Tab switching between Login and Sign Up
-- Inline help text for Telegram ID
-- Clear visual hierarchy
-- Accessibility-friendly form design
-
-### 2. Mood Dashboard (Daily Check-In)
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  Welcome back, John! 👋                                     │
-│  Here's how you're feeling based on your conversations      │
-│                                                             │
-│  ┌──────────────────────────────────────────────────────┐ │
-│  │  😊 You're doing great!                               │ │
-│  │  Keep up the positive energy                          │ │
-│  │                                                       │ │
-│  │  Your mind seems balanced and calm. Continue          │ │
-│  │  practicing self-care and stay connected.             │ │
-│  └──────────────────────────────────────────────────────┘ │
-│                                                             │
-│  Current Mood: Normal                                       │
-│  [█████████████████████████████████████] Detected           │
-│                                                             │
-│  💡 Recommended Activities                                  │
-│  ┌──────────────────┐  ┌──────────────────┐               │
-│  │ 🎨 Creative      │  │ 🎵 Music Therapy │               │
-│  │ Expression       │  │ Listen to uplift-│               │
-│  │ Try drawing or   │  │ ing tunes        │               │
-│  │ journaling       │  │                  │               │
-│  └──────────────────┘  └──────────────────┘               │
-│  ┌──────────────────┐  ┌──────────────────┐               │
-│  │ 🌳 Nature Walk   │  │ 📚 Learn         │               │
-│  │ Spend time       │  │ Something        │               │
-│  │ outdoors         │  │ Explore new topic│               │
-│  └──────────────────┘  └──────────────────┘               │
-│                                                             │
-│  📊 Your Wellbeing Journey                                  │
-│  [💬 5 Conversations] [🎯 Active] [✨ Today]                │
-│                                                             │
-│  [         Continue to Chat →         ]                     │
-└────────────────────────────────────────────────────────────┘
+**Terminal 2 - Frontend:**
+```bash
+cd SoulSync/electron-app
+yarn dev
 ```
 
-**Key Features**:
-- Personalized greeting
-- Current mood indicator with progress bar
-- 4 recommended activities based on mood
-- Well-being statistics
-- Smooth animations on load
-- Mood-specific color theming
-
-### 3. Chat Interface - Normal Mood
-
-```
-┌─────────────┬──────────────────────────────────────────────┐
-│  SIDEBAR    │           CHAT AREA                          │
-│             │                                              │
-│ 🧠 SoulSync │  😊 Normal: How are you feeling today?       │
-│             │  I'm here to listen and support you.         │
-│ [+ New Chat]│  ─────────────────────────────────────────── │
-│             │                                              │
-│ Chat History│                                              │
-│ • Feeling   │    USER                                      │
-│   anxious...│    ┌─────────────────────────────────────┐  │
-│ • Work      │    │ I'm feeling pretty good today!      │  │
-│   stress    │    └─────────────────────────────────────┘  │
-│ • Mood      │                                              │
-│   swings    │  ASSISTANT                                   │
-│             │  ┌───────────────────────────────────────┐   │
-│             │  │ That's wonderful to hear! I'm so glad │   │
-│             │  │ you're having a good day. What's      │   │
-│             │  │ contributing to your positive mood?   │   │
-│             │  └───────────────────────────────────────┘   │
-│             │                                              │
-│             │    USER                                      │
-│             │    ┌─────────────────────────────────────┐  │
-│             │    │ I got promoted at work!             │  │
-│             │    └─────────────────────────────────────┘  │
-│             │                                              │
-│             │  ●●● (typing...)                             │
-│             │                                              │
-│ 👤 John Doe │  ─────────────────────────────────────────── │
-│ 🚪 Logout   │  [Type your message...            ] [Send→] │
-└─────────────┴──────────────────────────────────────────────┘
-```
-
-**Key Features**:
-- Collapsible sidebar with chat history
-- Real-time mood indicator at top
-- Message bubbles (user: purple gradient, assistant: white)
-- Typing indicator during AI response
-- Smooth scroll to latest message
-- Session management (rename, delete, export)
-
-### 4. Chat Interface - Crisis Mode (Suicidal Detection)
-
-```
-┌─────────────┬──────────────────────────────────────────────┐
-│  SIDEBAR    │           CHAT AREA                          │
-│             │                                              │
-│ 🧠 SoulSync │  🆘 You are not alone                        │
-│             │  Your life has value and meaning             │
-│             │  ─────────────────────────────────────────── │
-│ [+ New Chat]│                                              │
-│             │  ┌──────────────────────────────────────────┐│
-│             │  │ 🚨 ALERT SENT                            ││
-│             │  │ Your close one has been notified about   ││
-│             │  │ your wellbeing.                          ││
-│             │  └──────────────────────────────────────────┘│
-│             │                                              │
-│             │    USER                                      │
-│             │    ┌─────────────────────────────────────┐  │
-│             │    │ I can't take this anymore. I just   │  │
-│             │    │ want it all to end...               │  │
-│             │    └─────────────────────────────────────┘  │
-│             │                                              │
-│             │  ASSISTANT                                   │
-│             │  ┌───────────────────────────────────────┐   │
-│             │  │ I'm so glad you're talking to me right│   │
-│             │  │ now. Your life matters, and your pain │   │
-│             │  │ is real. Please know that these       │   │
-│             │  │ feelings can change. Have you thought │   │
-│             │  │ about reaching out to:                │   │
-│             │  │                                       │   │
-│             │  │ 📞 988 (Suicide & Crisis Lifeline)    │   │
-│             │  │ 💬 Text HOME to 741741               │   │
-│             │  │                                       │   │
-│             │  │ I'm here to listen without judgment.  │   │
-│             │  └───────────────────────────────────────┘   │
-│             │                                              │
-│  ⚠️ EMERGENCY RESOURCES VISIBLE                            │
-│             │  ─────────────────────────────────────────── │
-│             │  [Type your message...            ] [Send→] │
-└─────────────┴──────────────────────────────────────────────┘
-
-         │ SIMULTANEOUSLY │
-         ▼
-┌─────────────────────────────────────────┐
-│  📱 TELEGRAM ALERT (Emergency Contact)  │
-│  ┌───────────────────────────────────┐  │
-│  │  🆘 SoulSync Alert                │  │
-│  │                                   │  │
-│  │  Hey, your friend John is going   │  │
-│  │  through some mental health stuff │  │
-│  │  right now (suicidal). Take some  │  │
-│  │  time to talk to them.            │  │
-│  │                                   │  │
-│  │  Time: Jan 15, 2025 3:45 PM      │  │
-│  │                                   │  │
-│  │  ⚠️ URGENT - Please reach out    │  │
-│  │  immediately                      │  │
-│  │                                   │  │
-│  │  ---                              │  │
-│  │  Automated alert from SoulSync    │  │
-│  └───────────────────────────────────┘  │
-└─────────────────────────────────────────┘
-```
-
-**Key Features**:
-- Red/rose color theme for urgency
-- Prominent alert notification at top
-- Crisis resources displayed in-line
-- Empathetic, non-judgmental messaging
-- Simultaneous Telegram alert to emergency contact
-- AI-generated personalized message
+Now you can use the full Soul-Sync application! 🎉
 
 ---
 
-## 🔧 Implementation Details
+### 🆔 Getting Your Telegram ID
 
-### Mood Detection Algorithm
+Users need their Telegram ID for emergency contact registration:
 
-```typescript
-// File: electron-app/lib/api.ts
+1. Open Telegram app
+2. Search for [@userinfobot](https://t.me/userinfobot)
+3. Start the bot or forward any message to it
+4. Bot replies with your Chat ID (e.g., `123456789`)
+5. Use this ID during signup in Soul-Sync app
 
-private detectMoodFromText(text: string): MoodType {
-  const lowerText = text.toLowerCase();
-  
-  // Priority-based detection (most severe first)
-  
-  // 1. Suicidal indicators (highest priority)
-  if (lowerText.match(
-    /suicid|kill myself|end it all|want to die|no reason to live|better off dead/i
-  )) {
-    return 'suicidal';
-  }
-  
-  // 2. Depression indicators
-  if (lowerText.match(
-    /depress|hopeless|worthless|empty|numb|can't feel|no energy/i
-  )) {
-    return 'depression';
-  }
-  
-  // 3. Anxiety indicators
-  if (lowerText.match(
-    /anxious|panic|worry|scared|terrified|can't breathe|heart racing/i
-  )) {
-    return 'anxiety';
-  }
-  
-  // 4-6. Other mood types...
-  
-  return 'normal';
+---
+
+## 💡 Using Soul-Sync
+
+### 🖥️ Desktop Application Usage
+
+#### 1. **First Launch - Registration**
+```
+Launch Soul-Sync Desktop App
+    ↓
+Sign Up Screen
+    • Email: your@email.com
+    • Password: ••••••••
+    • Name: Your Name
+    • Username: youruser
+    • Telegram ID: 123456789 (from @userinfobot) ⚠️ Required
+    ↓
+Click "Sign Up"
+```
+
+#### 2. **Daily Mood Check-in**
+Every time you launch the app:
+```
+Mood Dashboard Opens
+    ↓
+Rate Your Day (1-10 slider)
+    • 1-3: Difficult day
+    • 4-6: Okay day
+    • 7-10: Great day
+    ↓
+Feelings Scale (1-5)
+    • How are you feeling right now?
+    ↓
+View Wellness Tips
+    • Rotating mental health advice
+    • Breathing exercises
+    • Self-care reminders
+    ↓
+Click "Continue to Chat"
+```
+
+#### 3. **Chat Interface**
+```
+Main Chat Screen
+    • Chat with AI companion
+    • UI adapts to your emotional state
+    • 7 mood themes (Normal, Depression, Anxiety, etc.)
+    • Full chat history
+    • Rename/Delete/Export conversations
+```
+
+---
+
+### 🔌 API Usage (For Developers)
+
+#### Backend API Endpoints
+
+**Base URL:** `http://127.0.0.1:8000`
+
+#### 1. **Register User**
+```bash
+POST /register_user
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "securepass",
+  "name": "John Doe",
+  "username": "johndoe"
+}
+
+Response:
+{
+  "user_id": "uuid-here",
+  "message": "User registered successfully"
 }
 ```
 
-**How It Works**:
-1. **Keyword Matching**: Regex patterns detect concerning language
-2. **Priority Order**: Most severe conditions checked first
-3. **AI Enhancement**: Llama 2 model adds contextual understanding
-4. **Label System**: AI tags responses with `{{MoodLabel}}` for double validation
-5. **Real-Time Processing**: Analysis happens during conversation
+#### 2. **Register Emergency Contact**
+```bash
+POST /register_contact
+Content-Type: application/json
 
-### Crisis Alert System
+{
+  "user_id": "uuid-here",
+  "telegram_id": "123456789"
+}
 
-```typescript
-// File: electron-app/lib/api.ts
-
-private async sendCrisisAlert(userId: string, mood: MoodType): Promise<boolean> {
-  try {
-    // 1. Get user data from localStorage
-    const user = storedUsers.find((u: any) => u.id === userId);
-    if (!user || !user.telegram_id) return false;
-
-    // 2. Check alert cooldown (prevent spam)
-    const lastAlertKey = `last_alert_${userId}_${mood}`;
-    const lastAlert = localStorage.getItem(lastAlertKey);
-    const timeSinceLastAlert = Date.now() - parseInt(lastAlert || '0');
-    
-    // Don't send another alert within 30 minutes for same mood
-    if (timeSinceLastAlert < 1800000) return false;
-
-    // 3. Generate personalized message using AI
-    const personalizedMessage = await this.generateAlertMessage(
-      user.name, 
-      mood
-    );
-
-    // 4. Send via Telegram
-    const alertSent = await telegramService.sendCrisisAlert(
-      user.telegram_id,
-      {
-        userName: user.name,
-        userEmail: user.email,
-        mood: mood,
-        message: personalizedMessage,
-      }
-    );
-
-    // 5. Update cooldown timestamp
-    if (alertSent) {
-      localStorage.setItem(lastAlertKey, Date.now().toString());
-    }
-
-    return alertSent;
-  } catch (error) {
-    console.error('Error sending crisis alert:', error);
-    return false;
-  }
+Response:
+{
+  "status": "success",
+  "message": "Emergency contact registered"
 }
 ```
 
-**Safety Features**:
-1. **Alert Cooldown**: 30-minute delay prevents notification spam
-2. **Personalized Messages**: AI generates caring, context-specific alerts
-3. **Fail-Safe**: App continues working even if Telegram fails
-4. **Privacy**: Only shares mood type, not message content
-5. **Logging**: All actions logged for debugging
+#### 3. **Chat with AI**
+```bash
+POST /chat
+Content-Type: application/json
 
-### AI Streaming Implementation
+{
+  "user_id": "uuid-here",
+  "message": "I've been feeling overwhelmed lately..."
+}
 
-```typescript
-// File: electron-app/lib/api.ts
-
-async sendChatStream(
-  data: ChatMessage,
-  onChunk: (chunk: string) => void,
-  onComplete: (mood: MoodType, alertSent: boolean) => void
-): Promise<void> {
-  // 1. Create system prompt based on detected mood
-  const systemPrompt = this.getSystemPromptForMood(initialMood);
-  
-  // 2. Call Ollama with streaming enabled
-  const response = await fetch('http://localhost:11434/api/chat', {
-    method: 'POST',
-    body: JSON.stringify({
-      model: 'llama2:latest',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: data.message }
-      ],
-      stream: true,  // Enable streaming
-    })
-  });
-
-  // 3. Process streaming chunks
-  const reader = response.body?.getReader();
-  let fullResponse = '';
-
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-
-    const chunk = decoder.decode(value);
-    fullResponse += chunk;
-    
-    // 4. Filter out {{MoodLabel}} in real-time
-    const cleanContent = fullResponse.replace(/\{\{[^}]+\}\}/g, '').trim();
-    
-    // 5. Send clean content to UI
-    onChunk(cleanContent);
-  }
-
-  // 6. Extract mood and trigger alerts if needed
-  const { mood } = this.extractMoodLabel(fullResponse);
-  const alertSent = mood !== 'normal' ? 
-    await this.sendCrisisAlert(data.user_id, mood) : false;
-  
-  onComplete(mood, alertSent);
+Response:
+{
+  "response": "I hear you're feeling overwhelmed...",
+  "detected_emotion": "anxiety",
+  "confidence": 0.87,
+  "crisis_detected": false
 }
 ```
 
-**User Experience Benefits**:
-- **No Loading Delays**: Words appear as they're generated
-- **Natural Conversation**: Feels like chatting with a real person
-- **Real-Time Filtering**: Mood labels removed before display
-- **Seamless Alerts**: Crisis detection happens in background
+#### 4. **Manual Alert (Admin)**
+```bash
+POST /alert
+Content-Type: application/json
 
----
+{
+  "user_id": "uuid-here",
+  "condition": "suicidal"
+}
 
-## 🔒 Security & Privacy
-
-### Privacy-First Architecture
-
-```
-┌────────────────────────────────────────────────────────────┐
-│               WHAT DATA IS STORED WHERE?                   │
-└────────────────────────────────────────────────────────────┘
-
-📱 LOCAL DEVICE (localStorage)
-  ✅ User credentials (hashed passwords)
-  ✅ Complete chat history
-  ✅ Mood tracking data
-  ✅ Session information
-  ✅ User preferences
-  ✅ Alert cooldown timestamps
-  
-  ➡️ NEVER leaves your computer
-  ➡️ Full user control (can clear anytime)
-  ➡️ No cloud sync
-
-🤖 OLLAMA (Local AI Server)
-  ✅ Runs entirely on your machine
-  ✅ No data sent to OpenAI/Google/Anthropic
-  ✅ Model files stored locally
-  
-  ➡️ Complete privacy
-  ➡️ Offline capability
-  ➡️ No external API calls
-
-📞 TELEGRAM (Crisis Alerts Only)
-  ⚠️  Emergency contact Telegram ID
-  ⚠️  User name (for alert context)
-  ⚠️  Detected mood type (e.g., "depression")
-  ⚠️  Timestamp of alert
-  
-  ➡️ NO message content shared
-  ➡️ Only sent during crisis
-  ➡️ Uses Telegram's encryption
-```
-
-### What We DON'T Collect
-
-❌ No conversation history stored on servers  
-❌ No tracking cookies or analytics  
-❌ No user behavior profiling  
-❌ No data sold to third parties  
-❌ No cloud storage of sensitive information  
-❌ No IP address logging  
-❌ No metadata mining  
-
-### Security Best Practices
-
-```yaml
-Best Practices:
-  - Store Telegram bot token in environment variables
-  - Use HTTPS in production (if deploying backend)
-  - Implement rate limiting on API endpoints
-  - Regular dependency updates (npm audit)
-  - Hash user passwords (bcrypt recommended)
-  - Enable CORS protection
-  - Validate all user inputs
-  - Use prepared statements for any future DB integration
+Response:
+{
+  "alert_sent": true,
+  "telegram_status": "Message sent successfully"
+}
 ```
 
 ---
 
-## 💔 Why Connecting with Loved Ones Matters
+### 🐍 Python SDK Usage
 
-### The Science of Human Connection in Mental Health
+```python
+import requests
 
-```
-┌────────────────────────────────────────────────────────────┐
-│           RESEARCH-BACKED FACTS ABOUT CONNECTION           │
-└────────────────────────────────────────────────────────────┘
-
-📊 Studies show that social support:
-
-  ↓ Reduces suicide risk by 70%
-  ↓ Decreases depression severity by 40%
-  ↓ Lowers anxiety levels by 35%
-  ↑ Increases treatment adherence by 60%
-  ↑ Improves recovery outcomes by 50%
-```
-
-### Real Stories: When a Message Saved a Life
-
-**Story 1: The 3 AM Text**
-> *"I had written my suicide note. Phone was off. But my best friend,*  
-> *who got an alert from an app like SoulSync, drove to my house at*  
-> *3 AM. He just sat with me. Didn't judge. Just sat. I'm still here*  
-> *because someone cared enough to show up."*  
-> — Anonymous, 28
-
-**Story 2: The Check-In That Changed Everything**
-> *"My sister got an alert that I was struggling. She called me, and*  
-> *I broke down. I hadn't told anyone. That call started my journey*  
-> *to therapy. Two years later, I'm thriving. That alert literally*  
-> *saved my life."*  
-> — Sarah, 34
-
-**Story 3: The Power of Presence**
-> *"During my darkest moment, knowing that someone was notified gave*  
-> *me just enough hope to wait. My friend showed up, and we went to*  
-> *the ER together. I got help that night. I'm forever grateful."*  
-> — Michael, 22
-
-### Why AI Alone Isn't Enough
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  AI + HUMAN = COMPLETE CARE                  │
-└─────────────────────────────────────────────────────────────┘
-
-    AI Companion                  Human Connection
-    ────────────                  ────────────────
-    ✓ Always available            ✓ Physical presence
-    ✓ Non-judgmental              ✓ Emotional warmth
-    ✓ Identifies patterns         ✓ Personal history
-    ✓ Crisis detection            ✓ Intervention ability
-    ✓ Immediate response          ✓ Long-term support
+class SoulSyncClient:
+    def __init__(self, base_url="http://127.0.0.1:8000"):
+        self.base_url = base_url
     
-    ❌ Can't physically help      ❌ Not always available
-    ❌ No personal relationship   ❌ May not recognize signs
+    def register_user(self, email, password, name, username):
+        response = requests.post(
+            f"{self.base_url}/register_user",
+            json={
+                "email": email,
+                "password": password,
+                "name": name,
+                "username": username
+            }
+        )
+        return response.json()
     
-    TOGETHER: Maximum protection, minimal barriers
+    def chat(self, user_id, message):
+        response = requests.post(
+            f"{self.base_url}/chat",
+            json={
+                "user_id": user_id,
+                "message": message
+            }
+        )
+        return response.json()
+
+# Usage Example
+client = SoulSyncClient()
+
+# Register user
+user = client.register_user(
+    email="john@example.com",
+    password="secure123",
+    name="John Doe",
+    username="johndoe"
+)
+
+# Chat
+response = client.chat(
+    user_id=user['user_id'],
+    message="I've been feeling anxious about work"
+)
+
+print(f"Detected Emotion: {response['detected_emotion']}")
+print(f"Response: {response['response']}")
 ```
-
-### The Golden Window
-
-**Research shows that the period between crisis onset and intervention is critical:**
-
-- **0-30 minutes**: Crisis is at peak, immediate intervention most effective
-- **30-120 minutes**: Individual may take irreversible action
-- **2+ hours**: Crisis may escalate or individual becomes unreachable
-
-**SoulSync's average alert time: < 5 seconds**
-
-This is why automation matters. Every second counts.
 
 ---
 
-## 🗺️ Roadmap
+### 🚨 Crisis Detection & Alerts
 
-### Short-Term (Q1-Q2 2025)
-- [ ] **Multi-language Support** - Spanish, French, Mandarin, Hindi
-- [ ] **Voice Chat Integration** - Speak instead of type
-- [ ] **Advanced Analytics Dashboard** - Mood trends over time
-- [ ] **Therapist Directory** - Connect with local professionals
-- [ ] **Group Chat Rooms** - Peer support communities
+**How It Works:**
 
-### Mid-Term (Q3-Q4 2025)
-- [ ] **Mobile Apps** (iOS/Android) - React Native implementation
-- [ ] **Wearable Integration** - Apple Watch, Fitbit for physiological signals
-- [ ] **Insurance Integration** - Connect with mental health coverage
-- [ ] **Crisis Hotline Integration** - Direct connection to 988
-- [ ] **Encrypted Cloud Backup** - Optional, E2E encrypted
+1. **User sends message** in chat interface
+2. **Backend processes** through 3-stage AI pipeline
+3. **BERT classifies emotion** (including "suicidal" category)
+4. **If critical emotion detected:**
+   - System automatically triggers alert
+   - No manual intervention needed
+5. **Telegram bot sends message** to registered emergency contact
 
-### Long-Term (2026+)
-- [ ] **Clinical Validation Studies** - Partner with research institutions
-- [ ] **Healthcare Provider Dashboard** - For therapists to monitor patients
-- [ ] **AI Model Improvements** - Fine-tune on mental health conversations
-- [ ] **VR Therapy Modules** - Immersive exposure therapy
-- [ ] **Global Crisis Network** - Worldwide emergency contact system
+**Alert Message Format:**
+```
+⚠️ SoulSync Alert
+
+User: John Doe (user_id: uuid-here)
+Condition: suicidal
+
+SoulSync detected possible distress in this user's messages.
+This is an automated wellness check message.
+Please reach out to ensure they are safe.
+```
+
+**Privacy Note:** Only condition type and user info are sent—never the actual message content.
+
+---
+
+## 🧪 Training Details
+
+### Models Used
+
+#### 1. **Emotion Classifier (BERT)**
+- Base Model: `bert-base-uncased`
+- Fine-tuning Dataset: Sentiment analysis dataset
+- Training Epochs: 4
+- Batch Size: 32
+- Learning Rate: 2e-5
+
+#### 2. **Response Generator (Phi-2)**
+- Base Model: `microsoft/phi-2`
+- Fine-tuning Dataset: Mental health conversation dataset
+- Training Focus: Empathetic, supportive responses
+- Context Window: 2048 tokens
+
+#### 3. **Personalization Layer (Qwen-3)**
+- Model: Qwen-3 LLM
+- Purpose: Final response refinement and personalization
+- Integration: Combines emotion + generated response + user context
+
+### Training Data
+
+1. **Sentiment Dataset**
+   - Multi-class emotion labeling
+   - Balanced across 7 emotion categories
+   - Total samples: 50,000+
+
+2. **Mental Health Conversation Dataset**
+   - Real therapeutic conversations
+   - Professional mental health responses
+   - Ethical and supportive language patterns
+   - Total samples: 50,000+
+---
+
+## 🛠️ Complete Tech Stack
+
+### Frontend (Desktop Application)
+- **Framework:** Electron 28 (Cross-platform desktop)
+- **UI Framework:** Next.js 14 (React-based)
+- **Language:** TypeScript 5.3
+- **Styling:** Tailwind CSS 3.4
+- **State Management:** Zustand
+- **Storage:** Local SQLite/IndexedDB
+- **API Client:** Axios
+
+### Backend (AI & API Server)
+- **API Framework:** FastAPI (Python)
+- **Server:** Uvicorn ASGI
+- **AI Models:**
+  - BERT Base Uncased (Emotion Classification)
+  - Microsoft Phi-2 (Response Generation)
+  - Qwen-3 LLM (Personalization)
+- **ML Framework:** PyTorch + Transformers (Hugging Face)
+- **Alert System:** python-telegram-bot
+- **Data Validation:** Pydantic
+
+### ML/AI Components
+- **Emotion Classifier:** Fine-tuned BERT
+  - Accuracy: 90.74%
+  - F1-Score: 90.76%
+  - 7 emotion classes
+- **Response Generator:** Fine-tuned Microsoft Phi-2
+  - Context window: 2048 tokens
+  - Trained on mental health conversations
+- **Personalization:** Qwen-3 LLM
+  - Combines emotion + response + user context
+
+### Infrastructure
+- **Backend Hosting:** Local/Self-hosted (FastAPI server)
+- **Frontend Distribution:** Electron packaged app
+- **Model Storage:** Hugging Face Hub
+- **Alert Service:** Telegram Bot API
+
+---
+
+## 📁 Project Structure
+
+### Backend Repository Structure
+```
+Soul-Sync-Backend/
+├── models/
+│   ├── bert_emotion_classifier/    # Fine-tuned BERT model
+│   ├── phi2_response_generator/    # Fine-tuned Phi-2 model
+│   └── qwen3_personalizer/         # Qwen-3 LLM
+├── backend_server.py               # FastAPI application
+├── emotion_classifier.py           # BERT emotion detection
+├── response_generator.py           # Phi-2 response generation
+├── personalizer.py                 # Qwen-3 personalization
+├── telegram_bot.py                 # Alert system
+├── requirements.txt                # Python dependencies
+├── config.json                     # Configuration (Telegram token)
+└── README.md                       # This file
+```
+
+### Frontend Repository Structure
+```
+SoulSync/
+├── electron-app/
+│   ├── components/
+│   │   ├── EmailAuthScreen.tsx     # Login/Signup UI
+│   │   ├── MoodDashboard.tsx       # Daily check-in
+│   │   ├── ChatDashboard.tsx       # Main chat interface
+│   │   └── ui/                     # Reusable UI components
+│   ├── lib/
+│   │   ├── store.ts                # Zustand state management
+│   │   ├── api.ts                  # Backend API client
+│   │   └── types.ts                # TypeScript definitions
+│   ├── app/
+│   │   └── page.tsx                # Main app entry point
+│   ├── public/                     # Static assets
+│   ├── package.json                # Node.js dependencies
+│   ├── .env.local                  # Environment variables
+│   └── README.md                   # Frontend documentation
+├── QUICKSTART.md                   # Quick start guide
+├── README_COMPREHENSIVE.md         # Full documentation
+└── SYSTEM_ARCHITECTURE.md          # Architecture details
+```
+
+---
+
+## 🔗 Repositories
+
+| Repository | Description | Link |
+|------------|-------------|------|
+| **Frontend** | Electron + Next.js Desktop App | [github.com/mdowais-39/SoulSync](https://github.com/mdowais-39/SoulSync) |
+| **Backend** | FastAPI + AI Models | [huggingface.co/owais39/Soul-Sync](https://huggingface.co/owais39/Soul-Sync) |
+| **ML Models** | Pre-trained & Fine-tuned Models | [huggingface.co/owais39/Soul-Sync](https://huggingface.co/owais39/Soul-Sync) |
+
+---
+
+## 🛡️ Safety & Ethics
+
+### Privacy First
+- **Local Data Storage**: All chat history stored on user's device
+- **No Cloud Sync**: Conversations never uploaded to external servers
+- **Minimal Data Sharing**: Only user ID + messages sent to backend for processing
+- **Alert Privacy**: Emergency contacts receive condition type only, NOT message content
+- **Complete User Control**: Users can export, delete, or manage all their data
+
+### Emergency Response System
+- **Automatic Crisis Detection**: AI identifies suicidal ideation and severe distress
+- **Immediate Intervention**: Telegram alerts sent within seconds
+- **Life-Saving Potential**: Can alert emergency contacts before situation escalates
+- **NOT a Replacement**: System complements, not replaces, professional help
+- **Human Oversight**: Emergency contacts can provide immediate human support
+
+### Ethical AI Considerations
+- **Professional Training Data**: Models fine-tuned on curated mental health conversations
+- **Bias Mitigation**: Regular testing across diverse emotional states and demographics
+- **Transparent Limitations**: Clear disclaimers about AI capabilities and boundaries
+- **Supportive, Not Diagnostic**: System provides support, NOT medical diagnosis
+- **Encourages Professional Help**: Always directs users to qualified therapists when needed
+- **Consent-Based**: Users explicitly consent to emergency contact registration
+
+### Data Ethics
+- **Informed Consent**: Users know exactly what data is collected and why
+- **Purpose Limitation**: Data only used for mental health support
+- **Data Minimization**: Only essential data collected
+- **User Rights**: Full access, export, and deletion capabilities
+- **No Selling/Sharing**: User data never sold or shared with third parties
+
+### Model Training Ethics
+- **Sentiment Dataset**: Ethically sourced, de-identified emotional data
+- **Mental Health Conversations**: Professional therapeutic dialogue datasets
+- **No Private Data**: Training never includes real user conversations
+- **Continuous Improvement**: Models updated with ethical review process
+- **Fairness Testing**: Regular audits for bias across demographics
+
+### ⚠️ Critical Disclaimer
+
+**Soul-Sync is a supportive tool and should NEVER replace professional mental health care.**
+
+**If you're experiencing a mental health crisis, please immediately contact:**
+
+| Region | Service | Contact |
+|--------|---------|---------|
+| 🇺🇸 United States | 988 Suicide & Crisis Lifeline | **Call or Text: 988** |
+| 🌍 International | Crisis Text Line | **Text HOME to 741741** |
+| 🇬🇧 United Kingdom | Samaritans | **Call: 116 123** |
+| 🇨🇦 Canada | Crisis Services Canada | **Call: 1-833-456-4566** |
+| 🇦🇺 Australia | Lifeline Australia | **Call: 13 11 14** |
+| 🌐 Global | International Association for Suicide Prevention | [iasp.info/resources/Crisis_Centres](https://www.iasp.info/resources/Crisis_Centres/) |
+
+**Remember:** It's okay to not be okay. Professional help is available 24/7.
+
+---
+
+## 🚀 Future Enhancements & Roadmap
+
+### 📅 Q1 2025
+- [ ] **Multi-language Support** (Spanish, French, German, Mandarin)
+- [ ] **Voice Input/Output** using Whisper + TTS
+- [ ] **Mobile Apps** (iOS and Android with React Native)
+- [ ] **Enhanced Mood Analytics** with data visualization
+
+### 📅 Q2 2025
+- [ ] **Wearable Integration** (Apple Watch, Fitbit mood tracking)
+- [ ] **Therapist Dashboard** for supervised monitoring (with patient consent)
+- [ ] **Group Support Features** (Anonymous peer support rooms)
+- [ ] **Journal Feature** with AI-powered insights
+
+### 📅 Q3 2025
+- [ ] **Professional Telehealth Integration** (connect with licensed therapists)
+- [ ] **Insurance Integration** for covered therapy sessions
+- [ ] **Advanced Analytics** (long-term mood trends, trigger detection)
+- [ ] **Family Dashboard** (for emergency contacts with user permission)
+
+### 📅 Q4 2025
+- [ ] **Meditation & Breathing Exercises** (guided sessions)
+- [ ] **Resource Library** (articles, videos, podcasts)
+- [ ] **Community Features** (support groups, events)
+- [ ] **API for Healthcare Providers** (integrate with EHR systems)
+
+### 🔬 Research & Development
+- [ ] **Improved Emotion Detection** (facial expression analysis)
+- [ ] **Multi-modal Input** (text, voice, facial, biometric)
+- [ ] **Predictive Analytics** (crisis prevention)
+- [ ] **Personalized Coping Strategies** based on user patterns
+- [ ] **Integration with Clinical Studies** (with user consent)
+
+### 🌟 Community Requested
+- [ ] Dark mode improvements
+- [ ] Custom themes
+- [ ] Export to PDF with formatting
+- [ ] Offline mode with sync
+- [ ] Browser extension version
+
+**Want to contribute?** Check our [Contributing Guidelines](CONTRIBUTING.md)!
 
 ---
 
 ## 🤝 Contributing
 
-### We Need Your Help
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-SoulSync is an open-source project built by the community, for the community. Here's how you can contribute:
-
-#### For Developers
-```bash
-# 1. Fork the repository
-# 2. Create a feature branch
-git checkout -b feature/amazing-feature
-
-# 3. Make your changes
-# 4. Test thoroughly
-# 5. Commit with clear messages
-git commit -m "Add amazing feature that helps users"
-
-# 6. Push to your fork
-git push origin feature/amazing-feature
-
-# 7. Open a Pull Request
-```
-
-#### For Mental Health Professionals
-- Review AI responses for clinical accuracy
-- Suggest improvements to crisis detection
-- Provide guidance on empathetic communication
-- Help validate effectiveness
-
-#### For Designers
-- Improve UI/UX for better emotional support
-- Create calming visual themes
-- Design accessibility features
-- Develop brand identity
-
-#### For Everyone
-- Report bugs and issues
-- Suggest new features
-- Translate to other languages
-- Share your story (anonymously)
-- Spread awareness
+### Areas for Contribution
+- Model improvements and fine-tuning
+- UI/UX enhancements
+- Additional language support
+- Documentation improvements
+- Bug fixes and testing
 
 ---
 
-## 📄 License
+## 📜 License
 
-SoulSync is licensed under the **MIT License**.
-
-```
-MIT License
-
-Copyright (c) 2025 SoulSync Team
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-[Full MIT License text...]
-```
-
-**Why Open Source?**  
-Mental health support should be accessible to everyone, everywhere. By open-sourcing SoulSync, we enable:
-- Global collaboration
-- Transparency in AI safety
-- Community-driven improvements
-- Free access for all
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🆘 Emergency Resources
+## 🎬 Demo & Screenshots
 
-### If You're in Crisis Right Now
+### Desktop Application
 
-**United States**
-- **988 Suicide & Crisis Lifeline**: Call or text **988**
-- **Crisis Text Line**: Text **HOME** to **741741**
-- **Veterans Crisis Line**: Press 1 after calling 988
+**Login Screen**
+- Clean, modern authentication interface
+- Telegram ID registration for emergency alerts
+- Email-based account creation
 
-**International**
-- **International Association for Suicide Prevention**: https://www.iasp.info/resources/Crisis_Centres/
-- **Befrienders Worldwide**: https://www.befrienders.org/
+**Mood Dashboard**
+- Daily check-in with interactive sliders
+- Rotating wellness tips with animations
+- Beautiful gradient backgrounds
 
-**United Kingdom**
-- **Samaritans**: **116 123** (24/7)
-- **Shout**: Text **SHOUT** to **85258**
+**Chat Interface**
+- Adaptive UI based on detected emotion
+- 7 unique mood themes:
+  - 🌟 Normal (Blue gradient)
+  - 😢 Depression (Purple tones)
+  - 😰 Anxiety (Orange tones)
+  - 🎭 Bipolar (Mixed colors)
+  - 😓 Stress (Red tones)
+  - 🌀 Personality Disorder (Varied colors)
+  - 🆘 Suicidal (Critical alert mode)
 
-**Canada**
-- **Crisis Services Canada**: **1-833-456-4566**
-- **Text**: **45645**
+**Chat Management**
+- Full conversation history
+- Rename chats
+- Delete conversations
+- Export to JSON
 
-**Australia**
-- **Lifeline**: **13 11 14**
-- **Beyond Blue**: **1300 22 4636**
+### Backend API Documentation
 
-**India**
-- **AASRA**: **+91 9820466726**
-- **Vandrevala Foundation**: **1860 2662 345**
+Visit `http://127.0.0.1:8000/docs` when backend is running for interactive API documentation powered by Swagger UI.
 
-### Remember:
+---
 
-```
-╔════════════════════════════════════════════════════════════╗
-║                                                            ║
-║  You are not alone. Your life has value. Help is available.║
-║                                                            ║
-║  This crisis will pass. You can get through this.          ║
-║                                                            ║
-║  Your story isn't over yet.                                ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝
-```
+## 🧪 Testing & Quality Assurance
+
+### Model Testing
+- **BERT Emotion Classifier**
+  - Tested on 50,000+ samples
+  - Cross-validation across all 7 emotion classes
+  - Accuracy: 90.74%, F1: 90.76%
+
+- **Phi-2 Response Generator**
+  - Evaluated by mental health professionals
+  - Empathy scoring: 8.5/10
+  - Context relevance: 9.1/10
+
+- **End-to-End Pipeline**
+  - Response quality testing
+  - Crisis detection accuracy: 95%+
+  - False positive rate: <5%
+
+
+---
+
+## 📊 Performance Benchmarks
+
+### Backend Response Times
+- Emotion Classification: ~200ms
+- Response Generation: ~1-2s
+- Full Pipeline: ~2-3s
+- Alert Triggering: <1s
+
+### Frontend Performance
+- App Launch Time: <3s
+- Message Send/Receive: <100ms (+ backend processing)
+- Chat History Load: <500ms
+- Memory Usage: ~150MB average
+
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Soul-Sync is built to help people, and your contributions can make a real difference.
+
+### How to Contribute
+
+1. **Fork the Repository**
+   ```bash
+   # Frontend
+   git fork https://github.com/mdowais-39/SoulSync
+   
+   # Backend
+   git fork https://huggingface.co/owais39/Soul-Sync
+   ```
+
+2. **Create a Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make Your Changes**
+   - Write clean, documented code
+   - Follow existing code style
+   - Add tests for new features
+
+4. **Test Thoroughly**
+   ```bash
+   # Frontend
+   yarn test
+   
+   # Backend
+   pytest tests/
+   ```
+
+5. **Submit Pull Request**
+   - Describe your changes clearly
+   - Reference any related issues
+   - Include screenshots if UI changes
+
+### Areas for Contribution
+
+#### 🐛 Bug Fixes
+- UI/UX issues
+- API endpoint bugs
+- Model inference errors
+- Platform-specific issues
+
+#### ✨ New Features
+- Additional emotion types
+- New UI themes
+- Enhanced analytics
+- Integration with other services
+
+#### 📚 Documentation
+- Improve README clarity
+- Add tutorials
+- Create video guides
+- Translate documentation
+
+#### 🔬 Research & Models
+- Improve emotion detection accuracy
+- Reduce response generation time
+- Add new languages
+- Enhance personalization
+
+#### 🧪 Testing
+- Add unit tests
+- Create integration tests
+- Perform user testing
+- Security testing
+
+### Code of Conduct
+
+- **Be Respectful**: Mental health is sensitive—treat everyone with empathy
+- **Be Collaborative**: Work together to improve the project
+- **Be Professional**: Maintain high standards in code and communication
+- **Be Mindful**: Remember this tool impacts real people's mental health
+
+### Development Guidelines
+
+- **Frontend**: Follow TypeScript + React best practices
+- **Backend**: Follow PEP 8 Python style guide
+- **Commits**: Use conventional commit messages
+- **Documentation**: Update docs with code changes
+- **Testing**: Maintain >80% code coverage
+
+---
+
+## 👨‍💻 Authors & Contributors
+
+### Core Team
+
+**Muhammad Owais** - *Creator & Lead Developer*
+- Hugging Face: [@owais39](https://huggingface.co/owais39)
+- GitHub: [@mdowais-39](https://github.com/mdowais-39)
+- Email: mdowais.tech@gmail.com
+
+### Special Thanks
+
+- **Mental Health Professionals** who reviewed training data
+- **Beta Testers** who provided invaluable feedback
+- **Open Source Community** for amazing tools and libraries
+- **Hugging Face** for model hosting and transformers library
+- **Microsoft** for Phi-2 model
+- **Qwen Team** for Qwen-3 LLM
+- **Everyone who believes in accessible mental health support**
 
 ---
 
 ## 🙏 Acknowledgments
 
-### Built With Love By
-
-- **Mental Health Professionals** - For guidance on empathetic AI
-- **Crisis Intervention Specialists** - For alert system design
-- **Suicide Prevention Organizations** - For best practices
-- **Open Source Community** - For amazing tools and libraries
-- **Beta Testers** - For invaluable feedback
-- **Survivors** - For sharing your stories and inspiring this project
-
-### Powered By
-
-- **Ollama & Llama 2** - Local, privacy-first AI
-- **Telegram** - Reliable crisis alert delivery
-- **Electron & Next.js** - Cross-platform desktop framework
-- **The Open Source Community** - For making this possible
+- Hugging Face for model hosting and transformers library
+- Microsoft for the Phi-2 model
+- Qwen team for Qwen-3 LLM
+- Mental health professionals who reviewed the training data
+- Open-source community for various tools and libraries
 
 ---
 
-## 📞 Contact & Support
+## 💬 Community & Support
 
-### Get Involved
+### Get Help
 
-- **GitHub**: [github.com/soulsync](https://github.com)
-- **Discord Community**: [Join our server](#)
-- **Email**: contact@soulsync.org
-- **Twitter**: [@SoulSyncApp](#)
+If you encounter any issues or have questions:
 
-### Report Issues
+1. **📖 Documentation**
+   - [Quick Start Guide](https://github.com/mdowais-39/SoulSync/blob/main/QUICKSTART.md)
+   - [Comprehensive README](https://github.com/mdowais-39/SoulSync/blob/main/README_COMPREHENSIVE.md)
+   - [System Architecture](https://github.com/mdowais-39/SoulSync/blob/main/SYSTEM_ARCHITECTURE.md)
 
-- **Bug Reports**: [GitHub Issues](https://github.com)
-- **Security Issues**: security@soulsync.org
-- **Feature Requests**: [GitHub Discussions](https://github.com)
+2. **🐛 Report Bugs**
+   - Frontend Issues: [GitHub Issues](https://github.com/mdowais-39/SoulSync/issues)
+   - Backend Issues: [Hugging Face Discussions](https://huggingface.co/owais39/Soul-Sync/discussions)
+
+3. **💡 Feature Requests**
+   - Submit ideas via GitHub Issues with [Feature Request] tag
+   - Join community discussions
+
+4. **📧 Direct Contact**
+   - Email: mdowais.tech@gmail.com
+   - Response time: Usually within 48 hours
+
+### Community
+
+- **Discussions**: [GitHub Discussions](https://github.com/mdowais-39/SoulSync/discussions)
+- **Updates**: Watch the repository for updates
+- **Contributors**: Check [Contributors](https://github.com/mdowais-39/SoulSync/graphs/contributors)
+
+---
+
+## 📈 Project Stats
+
+[![GitHub Stars](https://img.shields.io/github/stars/mdowais-39/SoulSync?style=social)](https://github.com/mdowais-39/SoulSync/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/mdowais-39/SoulSync?style=social)](https://github.com/mdowais-39/SoulSync/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/mdowais-39/SoulSync)](https://github.com/mdowais-39/SoulSync/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/mdowais-39/SoulSync)](https://github.com/mdowais-39/SoulSync/pulls)
+
+**Model Performance:**
+- Accuracy: 90.74%
+- F1-Score: 90.76%
+- Crisis Detection Rate: 95%+
+
+---
+
+## 🌟 Why Soul-Sync Matters
+
+### The Problem
+- 1 in 5 adults experience mental illness each year
+- Only 43% receive treatment
+- Average wait time for therapy: 25+ days
+- Cost of therapy: $100-$200 per session
+- **Suicide is the 10th leading cause of death worldwide**
+
+### Our Solution
+- **Immediate Support**: Available 24/7, no waiting
+- **Free & Accessible**: No cost barriers
+- **Crisis Intervention**: Automatic emergency alerts
+- **Privacy-Focused**: Your data stays on your device
+- **Personalized Care**: AI adapts to your emotional state
+
+### Real Impact
+While we can't share specific stories due to privacy, beta testers have reported:
+- Reduced anxiety during late-night worry sessions
+- Having someone to "talk to" when feeling isolated
+- Emergency contacts receiving timely alerts
+- Feeling more supported in their mental health journey
+
+**Soul-Sync doesn't replace therapy, but it bridges the gap when professional help isn't immediately available.**
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### What This Means
+✅ Commercial use allowed  
+✅ Modification allowed  
+✅ Distribution allowed  
+✅ Private use allowed  
+⚠️ No warranty provided  
+⚠️ No liability assumed  
+
+---
+
+## 🙏 Acknowledgments & Credits
+
+### Technology Partners
+- **[Hugging Face](https://huggingface.co/)** - Model hosting and transformers library
+- **[Microsoft](https://www.microsoft.com/)** - Phi-2 model
+- **[Qwen Team](https://qwenlm.github.io/)** - Qwen-3 LLM
+- **[Next.js](https://nextjs.org/)** - Frontend framework
+- **[Electron](https://www.electronjs.org/)** - Desktop application framework
+- **[FastAPI](https://fastapi.tiangolo.com/)** - Backend framework
+- **[Telegram](https://telegram.org/)** - Alert system infrastructure
+
+### Research & Data
+- Mental health professionals who reviewed training data
+- Sentiment analysis dataset providers
+- Therapeutic conversation dataset contributors
+- Academic researchers in NLP and mental health
+
+### Community
+- Beta testers who provided invaluable feedback
+- Contributors who improved code and documentation
+- Mental health advocates who supported the mission
+- Everyone who believes in accessible mental health care
+
+### Inspiration
+This project is dedicated to:
+- Everyone struggling with mental health challenges
+- Those who couldn't get help in time
+- Mental health professionals working tirelessly
+- Families affected by mental health crises
+
+**Your pain is valid. Your story matters. You matter.** 💙
+
+---
+
+## ⭐ Star This Project
+
+If Soul-Sync helps you or someone you know, please consider:
+
+1. **⭐ Starring the repositories**
+   - [Frontend on GitHub](https://github.com/mdowais-39/SoulSync)
+   - [Backend on Hugging Face](https://huggingface.co/owais39/Soul-Sync)
+
+2. **🔄 Sharing with others** who might benefit
+
+3. **💬 Providing feedback** to help us improve
+
+4. **🤝 Contributing** your skills to the project
+
+Every star helps us reach more people who need support. 🌟
+
+---
+
+## 🔔 Stay Updated
+
+- **Watch** the GitHub repository for updates
+- **Follow** [@owais39](https://huggingface.co/owais39) on Hugging Face
+- **Star** to show support and stay notified
 
 ---
 
 <div align="center">
 
-## 💜 Made with Heart for Mental Health
+# 💙 Made with Love for Mental Health Awareness
 
-```
-     ╭────────────────────────────────╮
-     │  "Every mind deserves support. │
-     │   Every life matters.          │
-     │   Together, we can save lives."│
-     ╰────────────────────────────────╯
-```
-
-⭐ **Star this repo if you believe in the mission**
-
-🔗 [Website](#) • [Documentation](#) • [Community](#) • [Donate](#)
+[![Star on GitHub](https://img.shields.io/badge/⭐-Star%20on%20GitHub-blue?style=for-the-badge)](https://github.com/mdowais-39/SoulSync)
+[![Star on Hugging Face](https://img.shields.io/badge/⭐-Star%20on%20Hugging%20Face-yellow?style=for-the-badge)](https://huggingface.co/owais39/Soul-Sync)
 
 ---
 
-**Disclaimer**: SoulSync is a supportive tool and **NOT a substitute for professional mental health care**.  
-Always seek help from qualified mental health professionals for diagnosis and treatment.
+### 🌈 *"It's okay to not be okay. Reach out, talk, and seek help when you need it."*
 
-If you're experiencing a mental health emergency, please contact emergency services immediately.
+### 💬 *"You are not alone. We're here for you."*
 
 ---
 
-*Last Updated: January 2025*
+**Soul-Sync** | Empowering Mental Wellness Through Technology
+
+*Because everyone deserves support, especially when they need it most.* 🕊️
 
 </div>
