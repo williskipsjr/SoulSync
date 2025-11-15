@@ -25,7 +25,7 @@
 ### 🔗 Project Repositories
 
 **Frontend (Desktop App):** [github.com/mdowais-39/SoulSync](https://github.com/mdowais-39/SoulSync)  
-**Backend (AI Models):** This Repository (Hugging Face)  
+**Backend (AI Models):** [https://huggingface.co/owais39/Soul-Sync](https://huggingface.co/owais39/Soul-Sync) 
 **ML Models:** [huggingface.co/owais39/Soul-Sync](https://huggingface.co/owais39/Soul-Sync)
 
 </div>
