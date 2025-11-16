@@ -41,7 +41,6 @@ interface AuthState {
   // Chat session methods
   createNewSession: () => string;
   addMessage: (sessionId: string, message: ChatMessage) => void;
-  updateMessage: (sessionId: string, messageId: string, content: string) => void;
   deleteSession: (sessionId: string) => void;
   renameSession: (sessionId: string, title: string) => void;
   setCurrentSession: (sessionId: string | null) => void;
@@ -110,23 +109,6 @@ export const useAuthStore = create<AuthState>()(
                 ...session,
                 messages: updatedMessages,
                 title,
-                updatedAt: Date.now(),
-              };
-            }
-            return session;
-          }),
-        }));
-      },
-
-      updateMessage: (sessionId, messageId, content) => {
-        set((state) => ({
-          chatSessions: state.chatSessions.map((session) => {
-            if (session.id === sessionId) {
-              return {
-                ...session,
-                messages: session.messages.map((msg) =>
-                  msg.id === messageId ? { ...msg, content } : msg
-                ),
                 updatedAt: Date.now(),
               };
             }

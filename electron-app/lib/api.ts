@@ -104,83 +104,28 @@ class BackendAPI {
     return 'normal';
   }
 
-  /**
-   * Extract mood label from response
-   * Format: {{MoodLabel}}
-   */
-  private extractMoodLabel(text: string): { cleanText: string; mood: MoodType } {
-    const moodRegex = /\{\{(Normal|Depression|Suicidal|Anxiety|Bipolar|Stress|Personality disorder)\}\}/i;
-    const match = text.match(moodRegex);
-    
-    if (match) {
-      const cleanText = text.replace(moodRegex, '').trim();
-      const moodLabel = match[1].toLowerCase().replace(' disorder', '');
-      
-      // Map to MoodType
-      const moodMap: Record<string, MoodType> = {
-        'normal': 'normal',
-        'depression': 'depression',
-        'suicidal': 'suicidal',
-        'anxiety': 'anxiety',
-        'bipolar': 'bipolar',
-        'stress': 'stress',
-        'personality': 'personality'
-      };
-      
-      return {
-        cleanText,
-        mood: moodMap[moodLabel] || 'normal'
-      };
-    }
-    
-    // Fallback: detect from user message if no label found
-    return {
-      cleanText: text,
-      mood: 'normal'
-    };
-  }
-
-  /**
-   * Generate personalized alert message using Ollama
-   */
-  private async generateAlertMessage(userName: string, mood: MoodType): Promise<string> {
-    try {
-      const prompt = `Write a short, casual text message (1-2 sentences max) to tell someone their friend ${userName} is going through some mental health struggles with ${mood}. Be direct and caring but informal, like texting a friend. Don't use greetings or sign-offs.`;
-      
-      const response = await this.ollamaClient.post('/api/chat', {
-        model: 'llama2:latest',
-        messages: [
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        stream: false,
-        options: {
-          temperature: 0.8,
-          num_predict: 100,
-        }
-      });
-      
-      return response.data.message.content.trim();
-    } catch (error) {
-      console.error('Error generating alert message:', error);
-      // Fallback message - casual and direct
-      return `Hey, your friend ${userName} is going through some mental health stuff right now (${mood}). Take some time to talk to them.`;
-    }
-  }
-
   async sendChat(data: ChatMessage): Promise<ChatResponse> {
     console.log('💬 Sending message to Ollama (Llama 2):', data);
     
     try {
-      // Detect mood from user message initially
-      const initialMood = this.detectMoodFromText(data.message);
+      // Detect mood from user message
+      const detectedMood = this.detectMoodFromText(data.message);
+      
+      // Save mood to localStorage
+      if (detectedMood !== 'normal') {
+        localStorage.setItem(`mood_${data.user_id}`, detectedMood);
+      }
+
+      // Check if we need to send crisis alert
+      let alertSent = false;
+      if (detectedMood === 'suicidal' || detectedMood === 'depression') {
+        alertSent = await this.sendCrisisAlert(data.user_id, detectedMood);
+      }
       
       // Create system prompt based on detected mood
-      const systemPrompt = this.getSystemPromptForMood(initialMood);
+      const systemPrompt = this.getSystemPromptForMood(detectedMood);
       
-      // Call Ollama API (non-streaming for now, will update to streaming)
+      // Call Ollama API
       const response = await this.ollamaClient.post('/api/chat', {
         model: 'llama2:latest',
         messages: [
@@ -200,25 +145,11 @@ class BackendAPI {
         }
       });
       
-      const rawResponse = response.data.message.content;
-      
-      // Extract mood label from response
-      const { cleanText, mood } = this.extractMoodLabel(rawResponse);
-      
-      // Save mood to localStorage
-      if (mood !== 'normal') {
-        localStorage.setItem(`mood_${data.user_id}`, mood);
-      }
-
-      // Check if we need to send crisis alert (any non-normal mood)
-      let alertSent = false;
-      if (mood !== 'normal') {
-        alertSent = await this.sendCrisisAlert(data.user_id, mood);
-      }
+      const aiResponse = response.data.message.content;
       
       return {
-        response: cleanText,
-        mood: mood,
+        response: aiResponse,
+        mood: detectedMood,
         alert_sent: alertSent
       };
     } catch (error: any) {
@@ -232,7 +163,7 @@ class BackendAPI {
 
       // Still try to send alert even with API error
       let alertSent = false;
-      if (detectedMood !== 'normal') {
+      if (detectedMood === 'suicidal' || detectedMood === 'depression') {
         alertSent = await this.sendCrisisAlert(data.user_id, detectedMood);
       }
       
@@ -245,181 +176,44 @@ class BackendAPI {
   }
 
   /**
-   * Send chat with streaming support
-   */
-  async sendChatStream(
-    data: ChatMessage,
-    onChunk: (chunk: string) => void,
-    onComplete: (mood: MoodType, alertSent: boolean) => void
-  ): Promise<void> {
-    console.log('💬 Sending message to Ollama (Streaming):', data);
-    
-    try {
-      // Detect mood from user message initially
-      const initialMood = this.detectMoodFromText(data.message);
-      
-      // Create system prompt based on detected mood
-      const systemPrompt = this.getSystemPromptForMood(initialMood);
-      
-      // Call Ollama API with streaming
-      const response = await fetch('http://localhost:11434/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'llama2:latest',
-          messages: [
-            {
-              role: 'system',
-              content: systemPrompt
-            },
-            {
-              role: 'user',
-              content: data.message
-            }
-          ],
-          stream: true,
-          options: {
-            temperature: 0.7,
-            num_predict: 500,
-          }
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let fullResponse = '';
-      let displayedResponse = '';
-
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value);
-          const lines = chunk.split('\n').filter(line => line.trim());
-
-          for (const line of lines) {
-            try {
-              const parsed = JSON.parse(line);
-              if (parsed.message?.content) {
-                const content = parsed.message.content;
-                fullResponse += content;
-                
-                // Real-time label filtering - remove {{Label}} pattern before displaying
-                const cleanContent = fullResponse.replace(/\{\{[^}]+\}\}/g, '').trim();
-                
-                // Only send new content (diff from last displayed)
-                if (cleanContent !== displayedResponse) {
-                  displayedResponse = cleanContent;
-                  onChunk(cleanContent);
-                }
-              }
-            } catch (e) {
-              // Skip invalid JSON lines
-            }
-          }
-        }
-      }
-
-      // Extract mood label from complete response
-      const { cleanText, mood } = this.extractMoodLabel(fullResponse);
-      
-      // Ensure final clean text is displayed (in case of any edge cases)
-      if (cleanText !== displayedResponse) {
-        onChunk(cleanText);
-      }
-      
-      // Save mood to localStorage
-      if (mood !== 'normal') {
-        localStorage.setItem(`mood_${data.user_id}`, mood);
-      }
-
-      // Send crisis alert if needed
-      let alertSent = false;
-      if (mood !== 'normal') {
-        console.log('🚨 Non-normal mood detected, sending alert...', mood);
-        alertSent = await this.sendCrisisAlert(data.user_id, mood);
-      }
-
-      onComplete(mood, alertSent);
-      
-    } catch (error: any) {
-      console.error('Ollama streaming error:', error);
-      
-      // Fallback response
-      const detectedMood = this.detectMoodFromText(data.message);
-      const fallbackText = this.getFallbackResponse(detectedMood);
-      
-      onChunk(fallbackText);
-      
-      if (detectedMood !== 'normal') {
-        localStorage.setItem(`mood_${data.user_id}`, detectedMood);
-        await this.sendCrisisAlert(data.user_id, detectedMood);
-      }
-      
-      onComplete(detectedMood, detectedMood !== 'normal');
-    }
-  }
-
-  /**
    * Send crisis alert to emergency contact via Telegram
    */
   private async sendCrisisAlert(userId: string, mood: MoodType): Promise<boolean> {
     try {
-      console.log('🔍 Looking for user data for alert...', userId);
-      
       // Get user data from localStorage
       const storedUsers = JSON.parse(localStorage.getItem('soulsync_users') || '[]');
-      console.log('📦 Stored users:', storedUsers);
-      
       const user = storedUsers.find((u: any) => u.id === userId);
-      console.log('👤 Found user:', user);
 
       if (!user || !user.telegram_id) {
-        console.warn('⚠️ No emergency contact found for user. User:', user);
+        console.warn('⚠️ No emergency contact found for user');
         return false;
       }
 
       // Check if we've already sent an alert recently (avoid spam)
-      const lastAlertKey = `last_alert_${userId}_${mood}`;
+      const lastAlertKey = `last_alert_${userId}`;
       const lastAlert = localStorage.getItem(lastAlertKey);
       const now = Date.now();
       
       if (lastAlert) {
         const timeSinceLastAlert = now - parseInt(lastAlert);
-        // Don't send another alert within 30 minutes for same mood
-        if (timeSinceLastAlert < 1800000) {
+        // Don't send another alert within 1 hour
+        if (timeSinceLastAlert < 3600000) {
           console.log('⏰ Alert cooldown active, skipping duplicate alert');
           return false;
         }
       }
 
-      console.log('📝 Generating personalized alert message...');
-      // Generate personalized alert message using Ollama
-      const personalizedMessage = await this.generateAlertMessage(user.name, mood);
-      console.log('✉️ Generated message:', personalizedMessage);
-
-      console.log('📤 Sending Telegram alert to:', user.telegram_id);
-      // Send Telegram alert with personalized message
+      // Send Telegram alert
       const alertSent = await telegramService.sendCrisisAlert(user.telegram_id, {
         userName: user.name,
         userEmail: user.email,
         mood: mood,
-        message: personalizedMessage,
       });
 
       if (alertSent) {
         // Update last alert timestamp
         localStorage.setItem(lastAlertKey, now.toString());
-        console.log('✅ Crisis alert sent successfully to emergency contact');
-      } else {
-        console.error('❌ Failed to send Telegram alert');
+        console.log('✅ Crisis alert sent to emergency contact');
       }
 
       return alertSent;
@@ -430,25 +224,14 @@ class BackendAPI {
   }
 
   private getSystemPromptForMood(mood: MoodType): string {
-    const baseInstruction = `You are SoulSync, an empathetic AI mental health companion. 
-
-CRITICAL INSTRUCTIONS:
-1. Keep ALL responses concise (2-4 sentences maximum)
-2. ALWAYS end your response with a mood label in this exact format: {{MoodLabel}}
-3. Choose ONE mood label from: Normal, Depression, Suicidal, Anxiety, Bipolar, Stress, Personality disorder
-4. The label should reflect the user's emotional state based on their message
-5. Example response format: "I hear you, and your feelings are valid. Let's work through this together. {{Depression}}"
-
-`;
-
     const prompts = {
-      normal: baseInstruction + "Be supportive, understanding, and provide thoughtful responses. Keep responses concise and caring.",
-      depression: baseInstruction + "Support someone experiencing depression. Be gentle, validating, and remind them that their feelings are valid. Offer hope and suggest small, manageable steps. Never minimize their pain.",
-      suicidal: baseInstruction + "Help someone in crisis. Be extremely compassionate and non-judgmental. Acknowledge their pain, emphasize that you care, and gently encourage them to reach out to crisis services. Remind them their life has value.",
-      anxiety: baseInstruction + "Help someone with anxiety. Provide calming, grounding techniques. Validate their worries while helping them gain perspective. Suggest breathing exercises and mindfulness.",
-      stress: baseInstruction + "Help someone manage stress. Be practical and supportive. Help them break down overwhelming situations into manageable parts. Suggest self-care activities.",
-      bipolar: baseInstruction + "Support someone with mood fluctuations. Be steady and consistent. Help them recognize patterns and suggest routine maintenance. Encourage professional support.",
-      personality: baseInstruction + "Help someone exploring their identity and relationships. Be patient and understanding. Help them develop self-awareness and healthy coping strategies."
+      normal: "You are SoulSync, an empathetic AI mental health companion. Be supportive, understanding, and provide thoughtful responses. Keep responses concise and caring.",
+      depression: "You are SoulSync, supporting someone experiencing depression. Be gentle, validating, and remind them that their feelings are valid. Offer hope and suggest small, manageable steps. Never minimize their pain.",
+      suicidal: "You are SoulSync, helping someone in crisis. Be extremely compassionate and non-judgmental. Acknowledge their pain, emphasize that you care, and gently encourage them to reach out to crisis services. Remind them their life has value.",
+      anxiety: "You are SoulSync, helping someone with anxiety. Provide calming, grounding techniques. Validate their worries while helping them gain perspective. Suggest breathing exercises and mindfulness.",
+      stress: "You are SoulSync, helping someone manage stress. Be practical and supportive. Help them break down overwhelming situations into manageable parts. Suggest self-care activities.",
+      bipolar: "You are SoulSync, supporting someone with mood fluctuations. Be steady and consistent. Help them recognize patterns and suggest routine maintenance. Encourage professional support.",
+      personality: "You are SoulSync, helping someone exploring their identity and relationships. Be patient and understanding. Help them develop self-awareness and healthy coping strategies."
     };
     
     return prompts[mood];

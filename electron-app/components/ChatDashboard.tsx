@@ -77,7 +77,6 @@ export default function ChatDashboard() {
     currentSessionId,
     createNewSession,
     addMessage,
-    updateMessage,
     deleteSession,
     renameSession,
     setCurrentSession,
@@ -136,42 +135,41 @@ export default function ChatDashboard() {
       timestamp: Date.now(),
     });
 
-    // Create placeholder for assistant response
-    const assistantMsgId = `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    addMessage(currentSessionId, {
-      id: assistantMsgId,
-      role: 'assistant',
-      content: '',
-      timestamp: Date.now(),
-    });
-
     try {
-      await backendAPI.sendChatStream(
-        {
-          user_id: user?.id || '',
-          message: userMessage,
-        },
-        // onChunk callback - update message as chunks arrive (already cleaned in api.ts)
-        (cleanedChunk: string) => {
-          updateMessage(currentSessionId, assistantMsgId, cleanedChunk);
-        },
-        // onComplete callback - update mood and handle alerts
-        (mood, alertSent) => {
-          if (mood) {
-            setMood(mood);
-          }
-          
-          if (alertSent) {
-            setAlertNotification('Your close one has been notified about your wellbeing.');
-            setTimeout(() => setAlertNotification(null), 8000);
-          }
-          
-          setSendingMessage(false);
-        }
-      );
+      const response = await backendAPI.sendChat({
+        user_id: user?.id || '',
+        message: userMessage,
+      });
+
+      // Update mood if provided
+      if (response.mood) {
+        setMood(response.mood);
+      }
+
+      // Show alert notification if alert was sent
+      if (response.alert_sent) {
+        setAlertNotification('Emergency contact has been notified about your wellbeing.');
+        setTimeout(() => setAlertNotification(null), 8000);
+      }
+
+      // Add assistant response
+      const assistantMsgId = `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      addMessage(currentSessionId, {
+        id: assistantMsgId,
+        role: 'assistant',
+        content: response.response,
+        timestamp: Date.now(),
+      });
     } catch (error: any) {
-      // Update with error message
-      updateMessage(currentSessionId, assistantMsgId, 'Sorry, I encountered an error. Please try again.');
+      // Add error message
+      const errorMsgId = `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      addMessage(currentSessionId, {
+        id: errorMsgId,
+        role: 'assistant',
+        content: 'Sorry, I encountered an error. Please try again.',
+        timestamp: Date.now(),
+      });
+    } finally {
       setSendingMessage(false);
     }
   };
